@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:weather_app/core/constants/local.dart';
+import 'package:weather_app/app/config/app_config.dart';
 import 'package:weather_app/core/widgets/button.dart';
 import 'package:weather_app/i18n/app_localizations.dart';
 

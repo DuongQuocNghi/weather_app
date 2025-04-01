@@ -36,23 +36,29 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_localizations:
     sdk: flutter
-  intl: 0.19.0
+  intl: ^0.19.0
   shared_preferences: ^2.5.3
   go_router: ^14.8.1
   equatable: ^2.0.7
   bloc_concurrency: ^0.3.0
   flutter_bloc: ^9.1.0
   fluttertoast: ^8.2.12
+  
+  # Thêm các dependency cho ứng dụng thời tiết
+  http: ^1.2.1
+  geolocator: ^11.0.0
+  permission_handler: ^11.3.0
+  flutter_dotenv: ^5.1.0
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  grouped_list: ^6.0.0
+  get_it: ^8.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
+  mockito: ^5.4.4
+  bloc_test: ^10.0.0
   flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
@@ -66,9 +72,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - .env
+    - assets/images/
+    - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -1,16 +1,27 @@
 {
   "language_app": "Tiếng Việt",
 
-  "save_contacts": "Lưu danh bạ",
-  "barcode": "Barcode",
-  "scan_qr_code": "Quét QR Code",
-  "qr_code": "QR code",
-  "deep_linking": "Deep link mở ứng dụng",
+  "save_contacts": "Lưu liên hệ",
+  "barcode": "Mã vạch",
+  "scan_qr_code": "Quét mã QR",
+  "qr_code": "Mã QR",
+  "deep_linking": "Liên kết sâu",
   "close": "Đóng",
   "language": "Ngôn ngữ",
-  "change_theme": "Thay đổi giao diện",
+  "change_theme": "Thay đổi chủ đề",
   "coming_soon": "Sắp ra mắt",
   "change_language": "Thay đổi ngôn ngữ",
+  "five_day_forecast": "Dự báo 5 ngày",
 
-  "hello": "Xin chào"
+  "hello": "Xin chào",
+  
+  "loading_weather": "Đang tải dữ liệu thời tiết...",
+  "error_loading_weather": "Không thể tải dữ liệu thời tiết",
+  "retry": "Thử lại",
+  "forecast_days": "Dự báo 4 ngày tới",
+  "location_permission_denied": "Quyền truy cập vị trí bị từ chối.",
+  "location_permission_denied_forever": "Quyền truy cập vị trí bị từ chối vĩnh viễn, không thể yêu cầu quyền.",
+  "location_service_disabled": "Dịch vụ vị trí bị tắt. Vui lòng bật lại.",
+  "server_error": "Lỗi máy chủ",
+  "temperature_celsius": "°C"
 }

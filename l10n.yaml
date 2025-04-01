@@ -4,3 +4,4 @@ template-arb-file: app_vi.arb
 output-localization-file: app_localizations.dart
 use-escaping: true
 synthetic-package: false
+untranslated-messages-file: untranslated_messages.json

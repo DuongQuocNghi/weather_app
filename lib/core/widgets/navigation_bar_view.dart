@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/core/constants/local.dart';
+import 'package:weather_app/app/config/app_config.dart';
 
 var openLogApp = 0;
 

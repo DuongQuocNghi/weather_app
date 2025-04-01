@@ -1,6 +1,27 @@
 {
   "language_app": "English",
+  
+  "save_contacts": "Save Contacts",
+  "barcode": "Barcode",
+  "scan_qr_code": "Scan QR Code",
+  "qr_code": "QR Code",
+  "deep_linking": "Deep Linking",
+  "close": "Close",
+  "language": "Language",
+  "change_theme": "Change Theme",
+  "coming_soon": "Coming soon",
+  "change_language": "Change Language",
+  "five_day_forecast": "5-Day Forecast",
 
-
-  "hello": "Hello everybody"
+  "hello": "Hello everybody",
+  
+  "loading_weather": "Loading weather data...",
+  "error_loading_weather": "Unable to load weather data",
+  "retry": "Retry",
+  "forecast_days": "Next 4 days forecast",
+  "location_permission_denied": "Location permissions are denied.",
+  "location_permission_denied_forever": "Location permissions are permanently denied, we cannot request permissions.",
+  "location_service_disabled": "Location services are disabled. Please enable them.",
+  "server_error": "Server error",
+  "temperature_celsius": "°C"
 }

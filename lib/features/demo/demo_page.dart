@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/constants/local.dart';
+import 'package:weather_app/app/config/app_config.dart';
 import 'package:weather_app/core/widgets/navigation_bar_view.dart';
 import 'package:weather_app/features/demo/bloc/demo_bloc.dart';
 import 'package:weather_app/features/demo/bloc/demo_event.dart';
@@ -12,17 +12,28 @@ class DemoPage extends StatefulWidget {
     return MaterialPageRoute(builder: (context) => const DemoPage());
   }
 
-  const DemoPage({super.key,});
+  const DemoPage({super.key});
 
   @override
   State<StatefulWidget> createState() => _DemoPageState();
 }
 
 class _DemoPageState extends State<DemoPage> {
+  Locale? _currentLocale;
 
   @override
   void initState() {
     super.initState();
+    _loadSavedLocale();
+  }
+
+  Future<void> _loadSavedLocale() async {
+    final locale = await AppConfig.getCurrentLocale();
+    if (locale != null && mounted) {
+      setState(() {
+        _currentLocale = locale;
+      });
+    }
   }
 
   @override
@@ -63,42 +74,40 @@ class _DemoPageState extends State<DemoPage> {
   Widget build(BuildContext context) {
     return Localizations.override(
       context: context,
-      locale: Locale(appLanguage),
+      locale: _currentLocale,
       child: BlocProvider(
         create: (_) => DemoBloc()..add(DemoInitial()),
         child: Scaffold(
           backgroundColor: appColors.background,
           body: BlocBuilder<DemoBloc, DemoState>(
-          // List load more
-          // body: BlocConsumer<DemoBloc, DemoState>(
-          //     listener: (context, state){
-          //     contextPage = context;
-          //   },
+            // List load more
+            // body: BlocConsumer<DemoBloc, DemoState>(
+            //     listener: (context, state){
+            //     contextPage = context;
+            //   },
             builder: (context, state) {
               return Column(
                 children: [
                   _buildHeader(context, state),
-                  _buildBody(context, state)
+                  _buildBody(context, state),
                 ],
               );
             },
-          )
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildHeader(BuildContext context, DemoState state){
+  Widget _buildHeader(BuildContext context, DemoState state) {
     return Column(
       children: [
-        NavigationBarView(
-          titleText: AppLocalizations.of(context)?.hello,
-        ),
+        NavigationBarView(titleText: AppLocalizations.of(context)?.hello),
       ],
     );
   }
 
-  Widget _buildBody(BuildContext context, DemoState state){
+  Widget _buildBody(BuildContext context, DemoState state) {
     return Expanded(
       child: CustomScrollView(
         // List load more
@@ -120,5 +129,4 @@ class _DemoPageState extends State<DemoPage> {
       ),
     );
   }
-
 }

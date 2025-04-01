@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/core/assets/colors.dart';
-import 'package:weather_app/core/constants/local.dart';
+import 'package:weather_app/app/config/app_config.dart';
 import 'package:weather_app/core/utils/buttons.dart';
 import 'package:weather_app/core/utils/text_styles.dart';
 import 'package:weather_app/core/widgets/gradient_border.dart';
