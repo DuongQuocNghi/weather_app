@@ -3,12 +3,22 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/core/errors/exceptions.dart';
 
-class WeatherService {
+/// Interface định nghĩa các phương thức lấy dữ liệu thời tiết
+abstract class WeatherService {
+  /// Lấy dữ liệu thời tiết hiện tại tại vị trí có tọa độ [lat] và [lon]
+  Future<Map<String, dynamic>> fetchCurrentWeather(double lat, double lon);
+
+  /// Lấy dữ liệu dự báo 5 ngày tại vị trí có tọa độ [lat] và [lon]
+  Future<Map<String, dynamic>> fetchFiveDayForecast(double lat, double lon);
+}
+
+/// Implementation của WeatherService sử dụng OpenWeatherMap API
+class OpenWeatherMapService implements WeatherService {
   final http.Client client;
   final String? apiKey;
   final String? baseUrl;
 
-  WeatherService({required this.client})
+  OpenWeatherMapService({required this.client})
     : apiKey = dotenv.env['OPENWEATHER_API_KEY'],
       baseUrl = dotenv.env['OPENWEATHER_BASE_URL'];
 
@@ -19,7 +29,7 @@ class WeatherService {
     }
   }
 
-  /// Lấy dữ liệu thời tiết hiện tại
+  @override
   Future<Map<String, dynamic>> fetchCurrentWeather(
     double lat,
     double lon,
@@ -45,7 +55,7 @@ class WeatherService {
     }
   }
 
-  /// Lấy dữ liệu dự báo 5 ngày
+  @override
   Future<Map<String, dynamic>> fetchFiveDayForecast(
     double lat,
     double lon,

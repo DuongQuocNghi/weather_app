@@ -3,11 +3,19 @@ import 'package:weather_app/core/errors/exceptions.dart';
 import 'package:weather_app/src/generated/i18n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-class LocationService {
+/// Interface định nghĩa các phương thức làm việc với vị trí địa lý
+abstract class LocationService {
+  /// Lấy vị trí hiện tại của người dùng
+  Future<Position> getCurrentLocation();
+}
+
+/// Implementation mặc định của LocationService
+class DefaultLocationService implements LocationService {
   final BuildContext? context;
 
-  LocationService({this.context});
+  DefaultLocationService({this.context});
 
+  @override
   /// Lấy vị trí hiện tại của người dùng
   Future<Position> getCurrentLocation() async {
     bool serviceEnabled;

@@ -15,7 +15,7 @@ class ForecastDayItem extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       width: 120,
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
+        color: Colors.white.withAlpha((0.3 * 255).toInt()),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -40,7 +40,7 @@ class ForecastDayItem extends StatelessWidget {
           Text(
             dayWeather.weather.main,
             style: TextStyle(
-              color: Colors.white.withOpacity(0.8),
+              color: Colors.white.withAlpha((0.8 * 255).toInt()),
               fontSize: 12,
             ),
             textAlign: TextAlign.center,

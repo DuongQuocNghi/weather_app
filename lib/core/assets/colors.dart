@@ -55,13 +55,16 @@ abstract class AppColor {
   Color primary_8 = const Color(0x00000000);
   Color primary_9 = const Color(0x00000000);
 
-  List<Color> primaryGradient = [const Color(0x00000000), const Color(0x00000000)];
+  List<Color> primaryGradient = [
+    const Color(0x00000000),
+    const Color(0x00000000),
+  ];
   Color onPrimaryDark = const Color(0x00000000);
   Color onPrimaryLight = const Color(0x00000000);
 }
 
 class AppLightTheme extends AppColor {
-  AppLightTheme(){
+  AppLightTheme() {
     highlight_1 = const Color(0xffFFFFFF);
     highlight_2 = const Color(0xffFFF9E9);
     highlight_3 = const Color(0xffFFECBA);
@@ -119,10 +122,12 @@ class AppLightTheme extends AppColor {
 }
 
 class AppDarkTheme extends AppColor {
-  AppDarkTheme(){
+  AppDarkTheme() {
     highlight_1 = const Color(0xffFFFFFF);
-    highlight_2 = const Color(0xffFFF9E9).withOpacity(0.2);
-    highlight_3 = const Color(0xffFFECBA).withOpacity(0.3);
+    highlight_2 = const Color(0xffFFF9E9).withAlpha(51); // 0.2 * 255 = 51
+    highlight_3 = const Color(
+      0xffFFECBA,
+    ).withAlpha(77); // 0.3 * 255 = 76.5 ~ 77
 
     green_1 = const Color(0xffD9F6E7);
     green_2 = const Color(0xff98E9BE);

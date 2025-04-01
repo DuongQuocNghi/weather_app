@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
 
-class AppTextStyles{
-  static TextStyle heading_1 = const TextStyle(
+class AppTextStyles {
+  static TextStyle heading1 = const TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.normal,
   );
 
-  static TextStyle body_large_highlight = const TextStyle(
+  static TextStyle bodyLargeHighlight = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle body_large = const TextStyle(
+  static TextStyle bodyLarge = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.normal,
   );
 
-  static TextStyle body_medium_highlight = const TextStyle(
+  static TextStyle bodyMediumHighlight = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle body_medium = const TextStyle(
+  static TextStyle bodyMedium = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle body_highlight = const TextStyle(
+  static TextStyle bodyHighlight = const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.bold,
   );
@@ -36,30 +36,28 @@ class AppTextStyles{
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle body_small_highlight = const TextStyle(
+  static TextStyle bodySmallHighlight = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle body_small = const TextStyle(
+  static TextStyle bodySmall = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle body_xsmall_highlight = const TextStyle(
+  static TextStyle bodyXsmallHighlight = const TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle body_xsmall = const TextStyle(
+  static TextStyle bodyXsmall = const TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle body_xxsmall = const TextStyle(
+  static TextStyle bodyXxsmall = const TextStyle(
     fontSize: 8,
     fontWeight: FontWeight.bold,
   );
-
-
 }

@@ -21,16 +21,16 @@ class DependencyInjection {
 
     // Services
     sl.registerLazySingleton<WeatherService>(
-      () => WeatherService(client: sl<http.Client>()),
+      () => OpenWeatherMapService(client: sl<http.Client>()),
     );
-    sl.registerLazySingleton<LocationService>(() => LocationService());
+    sl.registerLazySingleton<LocationService>(() => DefaultLocationService());
     sl.registerLazySingleton<LocalStorageService>(
       () => SharedPrefsStorage(sl<SharedPreferences>()),
     );
 
     // Repositories
     sl.registerLazySingleton<WeatherRepository>(
-      () => WeatherRepository(weatherService: sl<WeatherService>()),
+      () => DefaultWeatherRepository(weatherService: sl<WeatherService>()),
     );
 
     // Config

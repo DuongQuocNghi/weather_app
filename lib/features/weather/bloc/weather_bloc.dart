@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:logger/logger.dart';
 import 'package:weather_app/core/errors/exceptions.dart';
 import 'package:weather_app/features/weather/bloc/weather_event.dart';
 import 'package:weather_app/features/weather/bloc/weather_state.dart';
@@ -10,6 +11,7 @@ import 'package:weather_app/services/location_service.dart';
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   final WeatherRepository weatherRepository;
   final LocationService locationService;
+  final Logger _logger = Logger();
 
   WeatherBloc({required this.weatherRepository, required this.locationService})
     : super(const WeatherState()) {
@@ -105,9 +107,9 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(state.copyWith(forecast: forecast));
     } on ServerException catch (e) {
       // Không thay đổi trạng thái nếu lỗi, chỉ log lỗi
-      print('Không thể lấy dự báo: ${e.message}');
+      _logger.w('Không thể lấy dự báo: ${e.message}');
     } catch (e) {
-      print('Lỗi khi lấy dự báo: ${e.toString()}');
+      _logger.e('Lỗi khi lấy dự báo: ${e.toString()}');
     }
   }
 }

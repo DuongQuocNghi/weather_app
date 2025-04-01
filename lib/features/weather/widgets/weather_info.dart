@@ -45,7 +45,11 @@ class WeatherInfo extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           DateFormat('EEEE, d MMMM').format(DateTime.now()),
-          style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 16),
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.white.withAlpha((0.5 * 255).toInt()),
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ],
     );
@@ -69,7 +73,7 @@ class WeatherInfo extends StatelessWidget {
             Text(
               weather.current.weather.description,
               style: TextStyle(
-                color: Colors.white.withOpacity(0.8),
+                color: Colors.white.withAlpha((0.5 * 255).toInt()),
                 fontSize: 16,
               ),
             ),

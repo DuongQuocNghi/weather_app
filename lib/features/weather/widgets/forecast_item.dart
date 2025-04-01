@@ -18,7 +18,7 @@ class ForecastItemWidget extends StatelessWidget {
       margin: const EdgeInsets.only(right: 10),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
+        color: Colors.white.withAlpha((0.1 * 255).toInt()),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
