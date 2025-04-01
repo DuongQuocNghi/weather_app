@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://openweathermap.org/api/global-precipitation-map -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title> Global precipitation map - OpenWeatherMap</title>
+  <meta name="apple-itunes-app" content="app-id=1535923697">
+  <!-- Google tag (gtag.js) -->
+<script async="" src="./Global precipitation map - OpenWeatherMap_files/clarity.js"></script><script async="" src="./Global precipitation map - OpenWeatherMap_files/niyw44l6sh"></script><script async="" src="./Global precipitation map - OpenWeatherMap_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-31TSX35RJT');
+</script>
+  <script type="text/javascript">
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "niyw44l6sh");
+</script>  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="weather, world, Openstreetmap, forecast, Openweather, current">
+<meta name="description" content="Access OpenWeather&#39;s Global Precipitation Map for current and historical data with high-resolution and
+10-minute updates OpenWeather&#39;s API. Compatible with OpenLayers and Leaflet for comprehensive visual weather data
+integration.">
+<meta name="author" content="OpenWeatherMap.org">
+<meta name="domain" content="OpenWeatherMap.org">
+<meta name="p:domain_verify" content="34fe229eab8562dca90f4a5962ff80a9">
+<meta property="title" content="Global precipitation map">  <link rel="stylesheet" href="./Global precipitation map - OpenWeatherMap_files/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">  <link rel="shortcut icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/favicon.ico">
+<link rel="icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/logo_16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/logo_32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/logo_60x60.png" sizes="60x60" type="image/png">  <link rel="stylesheet" href="./Global precipitation map - OpenWeatherMap_files/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="./Global precipitation map - OpenWeatherMap_files/css">
+<link rel="stylesheet" href="./Global precipitation map - OpenWeatherMap_files/css(1)">    <link href="./Global precipitation map - OpenWeatherMap_files/f715fd89ab078cb9d62b06cf2ebe66e0-1742905576" rel="stylesheet">
+<!-- <link href="https://openweathermap.org/combine/9e05934b20b1168fe3f391e409e227a4-1742905576" rel="stylesheet"> -->
+<!-- <link href="/themes/openweathermap/assets/css/new_design.css" rel="stylesheet"> -->  <script src="./Global precipitation map - OpenWeatherMap_files/d8fb6d080cb70d894318fcae14526239-1742905576"></script>
+<!-- <script src="https://openweathermap.org/combine/9dc69b9a99b742c8cd4a003c67dfede2-1742905576"></script> -->  </head>
+
+<body class="body-orange" onclick="closePopUps()">
+  <link href="./Global precipitation map - OpenWeatherMap_files/smart_banner_android.css" rel="stylesheet">
+
+<div id="banner_android" class="banner_stripe">
+    <div class="banner_container">
+        <a class="smartbanner__exit" onclick="bannerClose()"></a>
+        <img src="./Global precipitation map - OpenWeatherMap_files/android-app-top-banner.png" class="banner_icon" alt="banner android">
+        <div>
+            <p class="smartbanner-text">OpenWeather</p>
+            <p class="smartbanner-text">OpenWeather Ltd.</p>
+            <p class="smartbanner-text">GET - on Google Play</p>
+        </div>
+    </div>
+    <a class="google_button" href="https://play.google.com/store/apps/details?id=uk.co.openweather">VIEW</a>
+</div>
+
+<script src="./Global precipitation map - OpenWeatherMap_files/smart_banner_android.js"></script>  <nav id="nav-website" onclick="toggleMenu(event)">
+  <ul id="first-level-nav">
+    <li class="logo">
+      <a href="https://openweathermap.org/">
+        <img src="./Global precipitation map - OpenWeatherMap_files/logo_white_cropped.png" alt="logo">
+      </a>
+    </li>
+    <li id="hamburger">
+      <img src="./Global precipitation map - OpenWeatherMap_files/icon_hamburger.svg" alt="icon hamburger">
+    </li>
+    <li id="desktop-menu">
+      <form role="search" action="https://openweathermap.org/find" method="get">
+        <input type="text" name="q" placeholder="Weather in your city">
+        <input type="submit" class="submit">
+      </form>
+      <ul>
+        <li>
+          <a href="https://openweathermap.org/guide">Guide</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/api">API</a>
+        </li>
+        <li>
+          <a href="https://dashboard.openweather.co.uk/" target="_blank">Dashboard</a>
+        </li>
+        <li>
+          <a href="https://home.openweathermap.org/marketplace" target="_blank">Marketplace</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/price">Pricing</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/weathermap">Maps</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/our-initiatives">Our Initiatives</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/examples">Partners</a>
+        </li>
+        <li>
+          <a href="https://openweather.co.uk/blog/category/weather" target="_blank">Blog</a>
+        </li>
+        <li>
+          <a href="https://openweather.co.uk/" class="marketplace" target="_blank">For Business</a>
+        </li>
+                <li class="with-dropdown user-li">
+          <div id="user-dropdown">
+            <div class="inner-user-container">nam893861@gmail.com</div>
+          </div>
+          <ul class="dropdown-menu" id="user-dropdown-menu">
+            <li><a href="https://home.openweathermap.org/myservices">My services</a></li>
+            <li><a href="https://home.openweathermap.org/api_keys">My API keys</a></li>
+            <li><a href="https://home.openweathermap.org/payments">My payments</a></li>
+            <li><a href="https://home.openweathermap.org/home">My profile</a></li>
+            <li><a href="https://home.openweathermap.org/users/logout">Logout</a></li>
+          </ul>
+        </li>
+                <li><a href="https://openweathermap.org/support-centre">Support centre</a></li>
+    
+  </ul>
+  </li>
+  </ul>
+  <ul id="mobile-menu">
+    <li>
+      <form role="search" action="https://openweathermap.org/find" method="get">
+        <input type="text" name="q" placeholder="Weather in your city">
+        <input type="submit" class="submit">
+      </form>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/guide">Guide</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/api">API</a>
+    </li>
+    <li>
+      <a href="https://dashboard.openweather.co.uk/" target="_blank">Dashboard</a>
+    </li>
+    <li>
+      <a href="https://home.openweathermap.org/marketplace" target="_blank">Marketplace</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/price">Pricing</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/weathermap">Maps</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/our-initiatives">Our Initiatives</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/examples">Partners</a>
+    </li>
+    <li>
+      <a href="https://openweather.co.uk/blog/category/weather" target="_blank">Blog</a>
+    </li>
+    <li>
+      <a href="https://openweather.co.uk/" class="marketplace" target="_blank">For Business</a>
+    </li>
+    <li><a href="https://openweathermap.org/support-centre">Support centre</a></li>
+        <li class="user"><a href="https://home.openweathermap.org/">nam893861@gmail.com</a></li>
+    <li><a href="https://home.openweathermap.org/users/logout">Logout</a></li>
+      </ul>
+</nav>
+<div class="nav-styles"></div>  <main class="wrapper">
+        <div class="topic">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                                    <h1 class="breadcrumb-title">Global Precipitation Maps</h1>
+                            </div>
+            <div class="col-sm-5">
+                <ol class="breadcrumb pull-right hidden-xs">
+                    <li><a href="https://openweathermap.org/">Home</a></li>
+                                            <li class="active"><a href="https://openweathermap.org/api">API</a></li>
+                                                            
+                                                                        <li class="breadcrumb__leaf">Global Precipitation Maps</li>
+                                                            </ol>
+            </div>
+        </div>
+    </div>   
+</div>        <div class="container documentation">
+   <div class="doc-container">
+      <div>
+         <nav>
+            <ul>
+               <li><a href="https://openweathermap.org/api/global-precipitation-map#features">Features of Global Precipitation Map</a>
+               </li>
+               <li><a href="https://openweathermap.org/api/global-precipitation-map#url">URL format and parameters</a>
+               </li>
+               <li><a href="https://openweathermap.org/api/global-precipitation-map#example">Example of Global Precipitation Map layer</a></li>
+               <li><a href="https://openweathermap.org/api/global-precipitation-map#library">Libraries to connect weather layers</a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+      <div>
+         <p class="lead">Get current and historical global precipitation weather maps via the easy-to-work API. </p>
+         <section id="features">
+            <h2>Features of Global Precipitation Map</h2>
+
+            <ol>
+               <li>
+                  <p>Current and historical weather maps</p>
+                  <p>The historical weather map for the previous 2 days with a 10 minutes-step.</p>
+               </li>
+               <!-- <li>
+               <p><b>Update period is every 10 minutes</b></p>
+            </li> -->
+               <li>
+                  <p>Resolution less than 1 km</p>
+               </li>
+               <li>
+                  <p>Weather map layers: Precipitation layer</p>
+               </li>
+               <li>
+                  <p>Weather sources</p>
+                  <p>Global Precipitatoin Map is based on global weather models, satellites, radars and our OWM NWP-ML
+                     technology.</p>
+               </li>
+               <li>
+                  <p>There is the <a href="https://openweathermap.org/weathermap?basemap=map&amp;cities=true&amp;layer=radar&amp;lat=56.9510&amp;lon=24.1064&amp;zoom=5">OpenWeather
+                        Interactive Weather Maps</a> with Global Precipitation layer, which provide users with free
+                     access to visual data.</p>
+               </li>
+            </ol>
+         </section>
+
+         <section id="url">
+            <h2>URL format and parameters</h2>
+            <p>Use the following URL format and parameters to get weather maps.
+               Please pay attention to the URL example.
+            </p>
+            <p class="sub-header">API call</p>
+            <div class="api">
+               <code>
+                  https://maps.openweathermap.org/maps/2.0/radar/<span class="query_param">{z}</span>/<span class="query_param">{x}</span>/<span class="query_param">{y}</span>?appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a>&amp;tm=<span class="query_param"><span class="query_param">{date}</span>
+                  </span></code>
+            <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Global precipitation map - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+            <table class="material-table">
+               <tbody><tr>
+                  <th colspan="3">Parameters</th>
+               </tr>
+               <tr>
+                  <td><code>{z}</code></td>
+                  <td><span class="sub">required</span></td>
+                  <td>Number of zoom level.<br>
+                     The minimum value is <b>3</b>, and the maximum value is <b>7</b>. <br>You could find information
+                     about correlation between zoom levels, X, Y tile coordinate numbers and level scale <a href="https://openweathermap.org/faq#zoom_levels">here</a>
+
+                  </td>
+               </tr>
+               <tr>
+                  <td><code>{x}</code></td>
+                  <td><span class="sub">required</span></td>
+                  <td>Number of x tile coordinate. You could find information about correlation between zoom levels, X,
+                     Y tile coordinate numbers and level scale <a href="https://openweathermap.org/faq#zoom_levels">here</a></td>
+               </tr>
+               <tr>
+                  <td><code>{y}</code></td>
+                  <td><span class="sub">required</span></td>
+                  <td>Number of y tile coordinate. You could find information about correlation between zoom levels, X,
+                     Y tile coordinate numbers and level scale <a href="https://openweathermap.org/faq#zoom_levels">here</a></td>
+               </tr>
+               <tr>
+                  <td><code>appid</code></td>
+                  <td><span class="sub">required</span></td>
+                  <td>Your unique API key (you can always find it on your account page under the <a href="https://home.openweathermap.org/api_keys" target="_blank">"API key" tab</a>)</td>
+               </tr>
+               <tr>
+                  <td><code>tm</code></td>
+                  <td><span class="sub">required</span></td>
+                  <td>Date and time of (Unix time, UTC), e.g. 1600782000.
+                     <br>To get historical data, please specify the date in the past in your API request. The date must
+                     be no earlier than 2 days ago from the current moment.
+                     <br>To get current data, please specify the the nearest time in the past rounded up to 10 minutes
+                  </td>
+               </tr>
+            </tbody></table>
+            <div class="info-board info-board-orange">
+               <p>Please pay attention to the poins bellow to avoid possible errors:</p>
+               <ul>
+                  <li>Please specify dates in all API requests.</li>
+                  <li>Please specify dates with 10 minutes steps. For example, 1600780200, 1600780800, 1600781400, etc.
+                  </li>
+               </ul>
+            </div>
+            <p class="sub-header">URL example</p>
+            <div class="api example">
+               <code>
+                  https://maps.openweathermap.org/maps/2.0/radar/6/13/24?&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a>&amp;tm=<span class="query_param">1600781400
+                  </span></code>
+            <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Global precipitation map - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+            <div class="info-board info-board-blue">
+               <p>You need to insert the generated URL into special plugins.</p>
+               <p>For example, Leaflet, OpenLayers. You can also use any other apps that support the display of layers.
+                  <a href="https://openweathermap.org/api/global-precipitation-map#library">Learn more</a>.
+               </p>
+            </div>
+         </section>
+         <section id="example">
+            <h2>
+               Example of Global Precipitation Map layer
+            </h2>
+            <p>Please find below Global Precipitation Map layer example.</p>
+            <p class="sub-header">URL example</p>
+            <div class="api example">
+               <code>
+                  https://maps.openweathermap.org/maps/2.0/radar/7/4/2?&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a>&amp;tm=<span class="query_param">1703171400
+                  </span></code>
+            <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Global precipitation map - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+            <div class="grid-5-7">
+               <div>
+                  <a class="ow-btn round btn-black" href="https://openweathermap.org/weathermap?basemap=map&amp;cities=false&amp;layer=precipitation&amp;lat=30&amp;lon=-20&amp;zoom=3">Preview
+                     weathermap</a>
+               </div>
+               <div>
+                  <img src="./Global precipitation map - OpenWeatherMap_files/precipitation_current.png" alt="Precipitation">
+               </div>
+            </div>
+
+         </section>
+         <section id="library">
+            <h2>Libraries to connect weather layers</h2>
+            <p class="sub-header">Open Layers</p>
+            <p>The following functions are available for the OpenLayers library:</p>
+            <ul>
+               <li>Classes of weather layer and weather stations layer</li>
+               <li>Possibility to set your own style</li>
+               <li>Classes with clustered markers</li>
+               <li>Support of marker server clustering</li>
+            </ul>
+            <p class="sub-header">Leaflet</p>
+            <p>The OpenWeatherMap javascript library is designed to work with the Leaflet mapping service. The current
+               version of the library allows the following:</p>
+            <ul>
+               <li>Embedding of layer with current weather in cities </li>
+               <li>Embedding of layer with weather stations</li>
+               <li>The library supports customer clustering</li>
+            </ul>
+            <!-- <p class="sub-header">Leaflet library</p>
+            <p>Another implementation of map based on Leaflet technology supports OWM's TileLayers and current city/station data. It is configurable with many options. For current city/station data the library supports refreshing the data in intervals, some types of client-side clustering (show only the station/city with the highest rank for a defined pixel square), custom image set (if you provide one), different languages (<code>en</code>, <code>de</code>, <code>ru</code>, <code>fr</code>, but translation is incomplete), <code>minZoom</code> and others.</p>
+            <p>Source and documentation (README.md) is available on GitHub <a href="https://github.com/buche/leaflet-openweathermap">https://github.com/buche/leaflet-openweathermap</a>
+            <p>Example of weather map:  <a href=https://github.com/owm-inc/VANE-intro/tree/master/apps>https://github.com/owm-inc/VANE-intro/tree/master/apps</a></p> -->
+         </section>
+      </div>
+   </div>
+</div>  </main>
+  <div id="footer-website" onclick="toggleFooterSection(event)">
+   <div class="inner-footer-container">
+      <div class="horizontal-section">
+         <div class="footer-section">
+            <p class="section-heading">Product Collections</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/api#current">Current and Forecast APIs</a></li>
+                  <li><a href="https://openweathermap.org/api#history">Historical Weather Data</a></li>
+                  <li><a href="https://openweathermap.org/api#maps">Weather Maps</a></li>
+                  <li><a href="https://dashboard.openweather.co.uk/" target="_blank">Weather Dashboard</a></li>
+                  <li><a href="https://openweathermap.org/widgets-constructor">Widgets</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section">
+            <p class="section-heading">Subscription</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/appid">How to start</a></li>
+                  <li><a href="https://openweathermap.org/price">Pricing</a></li>
+                  <li><a href="https://home.openweathermap.org/users/sign_up">Subscribe for free</a></li>
+                  <li><a href="https://openweathermap.org/faq">FAQ</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section">
+            <p class="section-heading">Company</p>
+            <div class="section-content">
+               <p>OpenWeather is a team of IT experts and data scientists that has been practising deep weather data
+                  science. For each point on the globe, OpenWeather provides historical, current and forecasted weather
+                  data via light-speed APIs. Headquarters in London, UK.</p>
+            </div>
+         </div>
+      </div>
+      <div class="horizontal-section">
+         <div class="footer-section">
+            <p class="section-heading">Technologies</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/technology">Our technology</a></li>
+                  <li><a href="https://openweathermap.org/accuracy-and-quality">Accuracy and quality of weather data</a></li>
+                  <li><a href="https://openweathermap.org/stations">Connect your weather station</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section">
+            <p class="section-heading">Terms &amp; Conditions</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweather.co.uk/storage/app/media/Terms/Openweather_terms_and_conditions_of_sale.pdf" target="_blank">Terms and conditions of sale</a></li>
+                  <li><a href="https://openweather.co.uk/privacy-policy" target="_blank">Privacy Policy</a></li>
+                  <li><a href="https://openweather.co.uk/storage/app/media/Terms/Openweather_website_terms_and_conditions_of_use.pdf" target="_blank">Website terms and conditions</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section not-foldable">
+            <!-- <p class="section-heading">Contact us</p> -->
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/about-us" target="_blank">About us</a></li>
+                  <li><a href="https://openweather.co.uk/about/our-offices" target="_blank">Our offices</a></li>
+                  <li><a href="https://openweather.co.uk/blog/category/weather" target="_blank">Blog</a></li>
+                  <li><a href="https://openweather.co.uk/" target="_blank">OpenWeather for Business</a></li>
+                  <li><a href="https://openweathermap.org/chat">Ulla, OpenWeather AI assistant</a></li>
+                  <li><a href="https://home.openweathermap.org/questions" target="_blank">Ask a question</a></li>
+                  <!--  <li><a href="mailto:info@openweathermap.org">info@openweathermap.org</a>  -->
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="horizontal-section">
+         <div class="footer-section">
+            <div class="my-5">
+               <p>Download OpenWeather app</p>
+               <div>
+                  <a href="https://apps.apple.com/gb/app/openweather/id1535923697" target="_blank">
+                     <img src="./Global precipitation map - OpenWeatherMap_files/app-store-badge.svg" alt="Get it on AppStore">
+                  </a>
+                  <a href="https://play.google.com/store/apps/details?id=uk.co.openweather" target="_blank">
+                     <img src="./Global precipitation map - OpenWeatherMap_files/google-play-badge.png" class="google-play-img" alt="Get it on Google Play">
+                  </a>
+               </div>
+            </div>
+         </div>
+         <div class="footer-section">
+            <div class="my-5 logo-blocks">
+               <img src="./Global precipitation map - OpenWeatherMap_files/RMets_Logo_corp.png" width="200" height="70" alt="RMets logo">
+               <img src="./Global precipitation map - OpenWeatherMap_files/CNB_Business_Logo_2024.png" alt="CNB Business logo" width="170" height="170">
+            </div>
+         </div>
+
+      </div>
+      <div class="horizontal-section my-5">
+         <div>
+            <span>Supplier of Achilles UVDB community</span><br>
+            <span id="years-copyright">© 2012 — 2025 OpenWeather ® All rights reserved</span><br><br>
+         </div>
+         <div class="social">
+            <a href="https://www.facebook.com/groups/270748973021342" target="_blank"><img src="./Global precipitation map - OpenWeatherMap_files/icon_facebook.png" alt="facebook icon"></a>
+            <a href="https://twitter.com/OpenWeatherMap" target="_blank"><img src="./Global precipitation map - OpenWeatherMap_files/icon_x_black.png" alt="x icon"></a>
+            <a href="https://www.linkedin.com/company/9816754" target="_blank"><img src="./Global precipitation map - OpenWeatherMap_files/icon_linkedin.png" alt="linkedin icon "></a>
+            <a href="https://medium.com/@openweathermap" target="_blank"><img src="./Global precipitation map - OpenWeatherMap_files/new_medium.svg" alt="meduim icon"></a>
+            <a href="https://t.me/openweathermap" target="_blank"><img src="./Global precipitation map - OpenWeatherMap_files/icon_telegram.png" alt="telegram icon"></a>
+            <a href="https://github.com/openweathermap" target="_blank"><img src="./Global precipitation map - OpenWeatherMap_files/icon_github.png" alt="github icon"></a>
+         </div>
+      </div>
+      <div class="horizontal-section"></div>
+   </div>
+</div>  <script src="./Global precipitation map - OpenWeatherMap_files/raven.min.js"></script>
+<script>Raven.config('http://66df88eb63e94f27964b84031e49b358@sentry.owm.io/16').install()</script>  <script src="./Global precipitation map - OpenWeatherMap_files/bundle_owm_postload.c31872127471c475ade1.js"></script>
+<script src="./Global precipitation map - OpenWeatherMap_files/advertising.js"></script>    <link href="./Global precipitation map - OpenWeatherMap_files/chat-banner.css" rel="stylesheet">
+<link href="./Global precipitation map - OpenWeatherMap_files/assistant-index.DVVhxENO.css" rel="stylesheet">
+
+<style>
+  #owm-chat-bot p {
+    font-weight: normal;
+  }
+
+  #owm-chat-bot>div {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .pop-up-content h2 {
+    margin-top: 19.2px;
+  }
+
+  .owm-chat-bot-description ul {
+    margin: 0;
+    padding: 16px;
+    background-color: #4f4f4f;
+    color: white;
+    border-radius: 4.8px;
+  }
+
+  .owm-chat-bot-description ul.dashed {
+    list-style-type: none;
+  }
+
+  /* .owm-chat-bot-description ul.dashed>li {
+    text-indent: -1rem;
+  } */
+
+  .owm-chat-bot-description ul.dashed>li:before {
+    content: "- ";
+    text-indent: -16px;
+  }
+</style>
+
+<div id="owm-chat-bot" data-key="5796abbde9106b7da4febfae8c44c232" data-popup="" style="display: none; position: fixed; z-index: 50000; bottom: 16px; right: 16px; height: 640px; max-height: calc(100% - 32px); width: 480px; max-width: calc(100% - 32px);"><div class="flex h-full grow flex-col rounded-xl border bg-white shadow-lg"><div class="flex items-center justify-between rounded-t-xl border-t bg-pearl-800 p-4 font-title"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.4 36.9" class="h-10 w-10 text-primary-400"><path d="M45.1 22.9a1.5 1.5 0 01-1.5 1.5H27.9a1.5 1.5 0 00-1.4 1.6 1.5 1.5 0 001.4 1.5h.7a1.5 1.5 0 011.5 1.5 1.5 1.5 0 01-1.5 1.5h-1.9a1.5 1.5 0 00-1.5 1.5 1.5 1.5 0 001.5 1.5h10.2a1.5 1.5 0 011.5 1.5 1.5 1.5 0 01-1.5 1.5h-27A1.5 1.5 0 018.4 35a1.5 1.5 0 011.5-1.5h6.5a1.5 1.5 0 001.5-1.5 1.5 1.5 0 00-1.5-1.5H6.8A1.5 1.5 0 015.3 29a1.3 1.3 0 01.1-.6 1.6 1.6 0 011.4-.9h.5A1.5 1.5 0 008.8 26a1.5 1.5 0 00-1.5-1.5H1.5A1.5 1.5 0 010 23a1.5 1.5 0 011.5-1.5h1.1a26.4 26.4 0 01-.2-2.9 18.5 18.5 0 1136.9 0 26.4 26.4 0 01-.2 2.9h4.5a1.5 1.5 0 011.5 1.4z" fill="currentColor"></path><path d="M47.4 29.1a1.5 1.5 0 01-1.5 1.5h-3.3a1.5 1.5 0 01-1.5-1.5 1.5 1.5 0 011.5-1.5h3.3a1.5 1.5 0 011.5 1.5z" fill="currentColor"></path><path d="M38.6 29.1a1.5 1.5 0 01-1.5 1.5h-3.4a1.5 1.5 0 01-1.4-1.5 1.5 1.5 0 011.4-1.5h3.4a1.5 1.5 0 011.5 1.5z" fill="currentColor"></path></svg><div class="text-md font-title font-bold text-pearl-100">Ask Ulla Weather Assistant</div></div><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer text-pearl-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg></div><div class="messages flex-1 overflow-auto"><div class="flex flex-col gap-y-2 p-3"><div class="flex gap-3 justify-start"><div class="bubble answer"><div><p>Hello, it's Ulla Weather Assistant, please feel free to ask me questions about the weather and get weather-related recommendations for any location worldwide.</p>
+</div></div></div></div></div><form class="flex items-center justify-between border-t p-3"><div class="relative flex-1"><input type="text" class="w-full rounded border py-2 pl-4 pr-10 shadow focus:outline-none" placeholder="Type your message here..." value=""><button type="submit" disabled="" class="absolute inset-y-0 right-0 flex items-center justify-center px-3 text-primary-400 focus:outline-none "><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="size-6"><path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z"></path></svg></button></div></form></div></div>
+
+<script>
+  `ASSISTANT_URL=https://api.openweathermap.org`.split("\n").map(env => env.split('=')).map(env => window[env[0]] = env[1]);
+</script>
+<script src="./Global precipitation map - OpenWeatherMap_files/assistant-index.ClVGaiQn.js"></script>
+
+<div id="chat-banner" class="banner-pop-up">
+  <div class="banner-pop-up-content">
+    <img src="./Global precipitation map - OpenWeatherMap_files/Ulla_bot.png" alt="Ulla the Bot" width="16" height="16">
+    <h3>Ulla Weather Assistant</h3>
+  </div>
+</div>
+
+
+<script>
+  const chatBanner = document.getElementById('chat-banner');
+  const chatBot = document.getElementById('owm-chat-bot');
+
+  chatBanner.addEventListener('click', () => {
+    chatBanner.style.display = 'none';
+    chatBot.style.display = chatBot.style.display === 'none' ? 'block' : 'none';
+    gtag('event', 'maxullaweather', {
+      'event_category': 'Chat',
+      'event_label': 'maxullaweather'
+    });
+  });
+
+  window.addEventListener('minimize', () => {
+    chatBot.style.display = 'none';
+    chatBanner.style.display = 'block';
+    gtag('event', 'minullaweather', {
+      'event_category': 'Chat',
+      'event_label': 'minullaweather'
+    });
+  });
+
+  const gdprBanner = document.querySelector('.gdpr-banner');
+
+  if (gdprBanner) {
+    chatBanner.style.bottom = '80px';
+
+    const observer = new MutationObserver(() => {
+      if (!document.body.contains(gdprBanner)) {
+        chatBanner.style.bottom = '50px';
+      } else {
+        chatBanner.style.bottom = (gdprBanner.clientHeight + 8) + 'px';
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+</script>
+
+<div id="topcontrol" title="" style="position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;"><i class="fa fa-angle-up backtotop"></i></div></body></html>

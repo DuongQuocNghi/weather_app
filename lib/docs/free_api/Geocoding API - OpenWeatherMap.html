@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://openweathermap.org/api/geocoding-api -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title> Geocoding API - OpenWeatherMap</title>
+  <meta name="apple-itunes-app" content="app-id=1535923697">
+  <!-- Google tag (gtag.js) -->
+<script async="" src="./Geocoding API - OpenWeatherMap_files/clarity.js"></script><script async="" src="./Geocoding API - OpenWeatherMap_files/niyw44l6sh"></script><script async="" src="./Geocoding API - OpenWeatherMap_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-31TSX35RJT');
+</script>
+  <script type="text/javascript">
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "niyw44l6sh");
+</script>  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="weather, world, Openstreetmap, forecast, Openweather, current">
+<meta name="description" content="Learn more about OpenWeather&#39;s Geocoding API that simplifies location searches, seamlessly converting
+place names and zip codes into precise geographic coordinates and vice versa. This API, featuring both direct and
+reverse geocoding, is integrated within OpenWeather APIs for accurate location-specific weather data.">
+<meta name="author" content="OpenWeatherMap.org">
+<meta name="domain" content="OpenWeatherMap.org">
+<meta name="p:domain_verify" content="34fe229eab8562dca90f4a5962ff80a9">
+<meta property="title" content="Geocoding API">  <link rel="stylesheet" href="./Geocoding API - OpenWeatherMap_files/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">  <link rel="shortcut icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/favicon.ico">
+<link rel="icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/logo_16x16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/logo_32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/icons/logo_60x60.png" sizes="60x60" type="image/png">  <link rel="stylesheet" href="./Geocoding API - OpenWeatherMap_files/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="./Geocoding API - OpenWeatherMap_files/css">
+<link rel="stylesheet" href="./Geocoding API - OpenWeatherMap_files/css(1)">    <link href="./Geocoding API - OpenWeatherMap_files/f715fd89ab078cb9d62b06cf2ebe66e0-1742905576" rel="stylesheet">
+<!-- <link href="https://openweathermap.org/combine/9e05934b20b1168fe3f391e409e227a4-1742905576" rel="stylesheet"> -->
+<!-- <link href="/themes/openweathermap/assets/css/new_design.css" rel="stylesheet"> -->  <script src="./Geocoding API - OpenWeatherMap_files/d8fb6d080cb70d894318fcae14526239-1742905576"></script>
+<!-- <script src="https://openweathermap.org/combine/9dc69b9a99b742c8cd4a003c67dfede2-1742905576"></script> -->  </head>
+
+<body class="body-orange" onclick="closePopUps()">
+  <link href="./Geocoding API - OpenWeatherMap_files/smart_banner_android.css" rel="stylesheet">
+
+<div id="banner_android" class="banner_stripe">
+    <div class="banner_container">
+        <a class="smartbanner__exit" onclick="bannerClose()"></a>
+        <img src="./Geocoding API - OpenWeatherMap_files/android-app-top-banner.png" class="banner_icon" alt="banner android">
+        <div>
+            <p class="smartbanner-text">OpenWeather</p>
+            <p class="smartbanner-text">OpenWeather Ltd.</p>
+            <p class="smartbanner-text">GET - on Google Play</p>
+        </div>
+    </div>
+    <a class="google_button" href="https://play.google.com/store/apps/details?id=uk.co.openweather">VIEW</a>
+</div>
+
+<script src="./Geocoding API - OpenWeatherMap_files/smart_banner_android.js"></script>  <nav id="nav-website" onclick="toggleMenu(event)">
+  <ul id="first-level-nav">
+    <li class="logo">
+      <a href="https://openweathermap.org/">
+        <img src="./Geocoding API - OpenWeatherMap_files/logo_white_cropped.png" alt="logo">
+      </a>
+    </li>
+    <li id="hamburger">
+      <img src="./Geocoding API - OpenWeatherMap_files/icon_hamburger.svg" alt="icon hamburger">
+    </li>
+    <li id="desktop-menu">
+      <form role="search" action="https://openweathermap.org/find" method="get">
+        <input type="text" name="q" placeholder="Weather in your city">
+        <input type="submit" class="submit">
+      </form>
+      <ul>
+        <li>
+          <a href="https://openweathermap.org/guide">Guide</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/api">API</a>
+        </li>
+        <li>
+          <a href="https://dashboard.openweather.co.uk/" target="_blank">Dashboard</a>
+        </li>
+        <li>
+          <a href="https://home.openweathermap.org/marketplace" target="_blank">Marketplace</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/price">Pricing</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/weathermap">Maps</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/our-initiatives">Our Initiatives</a>
+        </li>
+        <li>
+          <a href="https://openweathermap.org/examples">Partners</a>
+        </li>
+        <li>
+          <a href="https://openweather.co.uk/blog/category/weather" target="_blank">Blog</a>
+        </li>
+        <li>
+          <a href="https://openweather.co.uk/" class="marketplace" target="_blank">For Business</a>
+        </li>
+                <li class="with-dropdown user-li">
+          <div id="user-dropdown">
+            <div class="inner-user-container">nam893861@gmail.com</div>
+          </div>
+          <ul class="dropdown-menu" id="user-dropdown-menu">
+            <li><a href="https://home.openweathermap.org/myservices">My services</a></li>
+            <li><a href="https://home.openweathermap.org/api_keys">My API keys</a></li>
+            <li><a href="https://home.openweathermap.org/payments">My payments</a></li>
+            <li><a href="https://home.openweathermap.org/home">My profile</a></li>
+            <li><a href="https://home.openweathermap.org/users/logout">Logout</a></li>
+          </ul>
+        </li>
+                <li><a href="https://openweathermap.org/support-centre">Support centre</a></li>
+    
+  </ul>
+  </li>
+  </ul>
+  <ul id="mobile-menu">
+    <li>
+      <form role="search" action="https://openweathermap.org/find" method="get">
+        <input type="text" name="q" placeholder="Weather in your city">
+        <input type="submit" class="submit">
+      </form>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/guide">Guide</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/api">API</a>
+    </li>
+    <li>
+      <a href="https://dashboard.openweather.co.uk/" target="_blank">Dashboard</a>
+    </li>
+    <li>
+      <a href="https://home.openweathermap.org/marketplace" target="_blank">Marketplace</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/price">Pricing</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/weathermap">Maps</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/our-initiatives">Our Initiatives</a>
+    </li>
+    <li>
+      <a href="https://openweathermap.org/examples">Partners</a>
+    </li>
+    <li>
+      <a href="https://openweather.co.uk/blog/category/weather" target="_blank">Blog</a>
+    </li>
+    <li>
+      <a href="https://openweather.co.uk/" class="marketplace" target="_blank">For Business</a>
+    </li>
+    <li><a href="https://openweathermap.org/support-centre">Support centre</a></li>
+        <li class="user"><a href="https://home.openweathermap.org/">nam893861@gmail.com</a></li>
+    <li><a href="https://home.openweathermap.org/users/logout">Logout</a></li>
+      </ul>
+</nav>
+<div class="nav-styles"></div>  <main class="wrapper">
+        <div class="topic">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                                    <h1 class="breadcrumb-title">Geocoding API</h1>
+                            </div>
+            <div class="col-sm-5">
+                <ol class="breadcrumb pull-right hidden-xs">
+                    <li><a href="https://openweathermap.org/">Home</a></li>
+                                            <li class="active"><a href="https://openweathermap.org/api">API</a></li>
+                                                            
+                                                                        <li class="breadcrumb__leaf">Geocoding API</li>
+                                                            </ol>
+            </div>
+        </div>
+    </div>   
+</div>        <div class="container documentation">
+   <div class="doc-container">
+      <div>
+         <nav>
+            <ul>
+               <li><a href="https://openweathermap.org/api/geocoding-api#description">Product description</a></li>
+               <li><a href="https://openweathermap.org/api/geocoding-api#direct">Direct geocoding</a>
+                  <ul>
+                     <li><a href="https://openweathermap.org/api/geocoding-api#direct_name">Coordinates by location name</a>
+                        <ul>
+                           <li><a href="https://openweathermap.org/api/geocoding-api#direct_name_how">How to make an API call</a></li>
+                           <li><a href="https://openweathermap.org/api/geocoding-api#direct_name_example">Example of API response</a></li>
+                           <li><a href="https://openweathermap.org/api/geocoding-api#direct_name_fields">Fields in API response</a></li>
+                        </ul>
+                     </li>
+                     <li><a href="https://openweathermap.org/api/geocoding-api#direct_zip">Coordinates by zip/post code</a>
+                        <ul>
+                           <li><a href="https://openweathermap.org/api/geocoding-api#direct_zip_how">How to make an API call</a></li>
+                           <li><a href="https://openweathermap.org/api/geocoding-api#direct_zip_example">Example of API response</a></li>
+                           <li><a href="https://openweathermap.org/api/geocoding-api#direct_zip_fields">Fields in API response</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li><a href="https://openweathermap.org/api/geocoding-api#reverse">Reverse geocoding</a>
+                  <ul>
+                     <li><a href="https://openweathermap.org/api/geocoding-api#reverse_how">How to make an API call</a></li>
+                     <li><a href="https://openweathermap.org/api/geocoding-api#reverse_example">Example of API response</a></li>
+                     <li><a href="https://openweathermap.org/api/geocoding-api#reverse_fields">Fields in API response</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </nav>
+      </div>
+      <div>
+         <section id="description">
+            <p class="lead">Geocoding API is a simple tool that we have developed to ease the search for locations while
+               working with geographic names and coordinates.</p>
+            <p class="text-justify">
+               Supporting API calls by geographical coordinates is the most accurate way to specify any location, that
+               is why this method is integrated in all OpenWeather APIs. However, this way is not always suitable for
+               all users. <br>Geocoding is the process of transformation of any location name into geographical
+               coordinates, and the other way around (reverse geocoding). OpenWeather’s Geocoding API supports both the
+               direct and reverse methods, working at the level of city names, areas and districts, countries and
+               states:</p>
+            <ul>
+               <li><a href="https://openweathermap.org/api/geocoding-api#direct">Direct geocoding</a> converts the specified name of a location or zip/post code
+                  into the exact geographical coordinates;</li>
+               <li><a href="https://openweathermap.org/api/geocoding-api#reverse">Reverse geocoding</a> converts the geographical coordinates into the names of the
+                  nearby locations.</li>
+            </ul>
+         </section>
+
+         <section id="direct">
+            <h1>Direct geocoding</h1>
+            <p>Direct geocoding allows to get geographical coordinates (lat, lon) by using name of the location (city
+               name or area name). If you use the <code>limit</code> parameter in the API call, you can cap how many
+               locations with the same name will be seen in the API response (for instance, London in the UK and London
+               in the US). </p>
+            <section id="direct_name">
+               <h2>Coordinates by location name</h2>
+
+               <section id="direct_name_how">
+                  <h3>How to make an API call</h3>
+                  <p class="sub-header">API call</p>
+                  <div class="api">
+                     <code>http://api.openweathermap.org/geo/1.0/direct?q=<span class="query_param"><span class="query_param">{city name}</span>,<span class="query_param">{state code}</span>,<span class="query_param">{country code}</span></span>&amp;limit=<span class="query_param"><span class="query_param">{limit}</span></span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <table class="material-table">
+                     <tbody><tr>
+                        <th colspan="3">Parameters</th>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">q</code></td>
+                        <td class="sub">required</td>
+                        <td>City name, state code (only for the US) and country code divided by comma. Please use ISO
+                           3166 country codes.</td>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">appid</code></td>
+                        <td class="sub">required</td>
+                        <td>Your unique API key (you can always find it on your account page under the <a href="https://home.openweathermap.org/api_keys" target="_blank">"API key" tab</a>)</td>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">limit</code></td>
+                        <td class="sub">optional</td>
+                        <td>Number of the locations in the API response (up to 5 results can be returned in the API
+                           response)</td>
+                     </tr>
+                  </tbody></table>
+                  <p class="sub-header">Example of API call</p>
+                  <div class="response">
+                     <div class="api">
+                        <code> http://api.openweathermap.org/geo/1.0/direct?q=London&amp;limit=5&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank">{API key}</a></code>
+                     <div class="tools"><button class="tooltip-btn"><img src="./Geocoding API - OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     <div class="content">
+                        <pre>                <code class="json hljs">
+[
+   {
+      <span class="hljs-attr">"name"</span>:<span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"local_names"</span>:{
+         <span class="hljs-attr">"ms"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"gu"</span>:<span class="hljs-string">"લંડન"</span>,
+         <span class="hljs-attr">"is"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"wa"</span>:<span class="hljs-string">"Londe"</span>,
+         <span class="hljs-attr">"mg"</span>:<span class="hljs-string">"Lôndôna"</span>,
+         <span class="hljs-attr">"gl"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"om"</span>:<span class="hljs-string">"Landan"</span>,
+         <span class="hljs-attr">"ku"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"tw"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"mk"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"ee"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"fj"</span>:<span class="hljs-string">"Lodoni"</span>,
+         <span class="hljs-attr">"gd"</span>:<span class="hljs-string">"Lunnainn"</span>,
+         <span class="hljs-attr">"ky"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"yo"</span>:<span class="hljs-string">"Lọndọnu"</span>,
+         <span class="hljs-attr">"zu"</span>:<span class="hljs-string">"ILondon"</span>,
+         <span class="hljs-attr">"bg"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"tk"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"co"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"sh"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"de"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"kl"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"bi"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"km"</span>:<span class="hljs-string">"ឡុងដ៍"</span>,
+         <span class="hljs-attr">"lt"</span>:<span class="hljs-string">"Londonas"</span>,
+         <span class="hljs-attr">"fi"</span>:<span class="hljs-string">"Lontoo"</span>,
+         <span class="hljs-attr">"fy"</span>:<span class="hljs-string">"Londen"</span>,
+         <span class="hljs-attr">"ba"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"sc"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"feature_name"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ja"</span>:<span class="hljs-string">"ロンドン"</span>,
+         <span class="hljs-attr">"am"</span>:<span class="hljs-string">"ለንደን"</span>,
+         <span class="hljs-attr">"sk"</span>:<span class="hljs-string">"Londýn"</span>,
+         <span class="hljs-attr">"mr"</span>:<span class="hljs-string">"लंडन"</span>,
+         <span class="hljs-attr">"es"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"sq"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"te"</span>:<span class="hljs-string">"లండన్"</span>,
+         <span class="hljs-attr">"br"</span>:<span class="hljs-string">"Londrez"</span>,
+         <span class="hljs-attr">"uz"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"da"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"sw"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"fa"</span>:<span class="hljs-string">"لندن"</span>,
+         <span class="hljs-attr">"sr"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"cu"</span>:<span class="hljs-string">"Лондонъ"</span>,
+         <span class="hljs-attr">"ln"</span>:<span class="hljs-string">"Lóndɛlɛ"</span>,
+         <span class="hljs-attr">"na"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"wo"</span>:<span class="hljs-string">"Londar"</span>,
+         <span class="hljs-attr">"ig"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"to"</span>:<span class="hljs-string">"Lonitoni"</span>,
+         <span class="hljs-attr">"ta"</span>:<span class="hljs-string">"இலண்டன்"</span>,
+         <span class="hljs-attr">"mt"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"ar"</span>:<span class="hljs-string">"لندن"</span>,
+         <span class="hljs-attr">"su"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ab"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"ps"</span>:<span class="hljs-string">"لندن"</span>,
+         <span class="hljs-attr">"bm"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"mi"</span>:<span class="hljs-string">"Rānana"</span>,
+         <span class="hljs-attr">"kn"</span>:<span class="hljs-string">"ಲಂಡನ್"</span>,
+         <span class="hljs-attr">"kv"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"os"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"bn"</span>:<span class="hljs-string">"লন্ডন"</span>,
+         <span class="hljs-attr">"li"</span>:<span class="hljs-string">"Londe"</span>,
+         <span class="hljs-attr">"vi"</span>:<span class="hljs-string">"Luân Đôn"</span>,
+         <span class="hljs-attr">"zh"</span>:<span class="hljs-string">"伦敦"</span>,
+         <span class="hljs-attr">"eo"</span>:<span class="hljs-string">"Londono"</span>,
+         <span class="hljs-attr">"ha"</span>:<span class="hljs-string">"Landan"</span>,
+         <span class="hljs-attr">"tt"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"lb"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ce"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"hu"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"it"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"tl"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"pl"</span>:<span class="hljs-string">"Londyn"</span>,
+         <span class="hljs-attr">"sm"</span>:<span class="hljs-string">"Lonetona"</span>,
+         <span class="hljs-attr">"en"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"vo"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"el"</span>:<span class="hljs-string">"Λονδίνο"</span>,
+         <span class="hljs-attr">"sn"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"fr"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"cs"</span>:<span class="hljs-string">"Londýn"</span>,
+         <span class="hljs-attr">"io"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"hi"</span>:<span class="hljs-string">"लंदन"</span>,
+         <span class="hljs-attr">"et"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"pa"</span>:<span class="hljs-string">"ਲੰਡਨ"</span>,
+         <span class="hljs-attr">"av"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"ko"</span>:<span class="hljs-string">"런던"</span>,
+         <span class="hljs-attr">"bh"</span>:<span class="hljs-string">"लंदन"</span>,
+         <span class="hljs-attr">"yi"</span>:<span class="hljs-string">"לאנדאן"</span>,
+         <span class="hljs-attr">"sa"</span>:<span class="hljs-string">"लन्डन्"</span>,
+         <span class="hljs-attr">"sl"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"hr"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"si"</span>:<span class="hljs-string">"ලන්ඩන්"</span>,
+         <span class="hljs-attr">"so"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"gn"</span>:<span class="hljs-string">"Lóndyre"</span>,
+         <span class="hljs-attr">"ay"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"se"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"sd"</span>:<span class="hljs-string">"لنڊن"</span>,
+         <span class="hljs-attr">"af"</span>:<span class="hljs-string">"Londen"</span>,
+         <span class="hljs-attr">"ga"</span>:<span class="hljs-string">"Londain"</span>,
+         <span class="hljs-attr">"or"</span>:<span class="hljs-string">"ଲଣ୍ଡନ"</span>,
+         <span class="hljs-attr">"ia"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ie"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ug"</span>:<span class="hljs-string">"لوندۇن"</span>,
+         <span class="hljs-attr">"nl"</span>:<span class="hljs-string">"Londen"</span>,
+         <span class="hljs-attr">"gv"</span>:<span class="hljs-string">"Lunnin"</span>,
+         <span class="hljs-attr">"qu"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"be"</span>:<span class="hljs-string">"Лондан"</span>,
+         <span class="hljs-attr">"an"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"fo"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"hy"</span>:<span class="hljs-string">"Լոնդոն"</span>,
+         <span class="hljs-attr">"nv"</span>:<span class="hljs-string">"Tooh Dineʼé Bikin Haalʼá"</span>,
+         <span class="hljs-attr">"bo"</span>:<span class="hljs-string">"ལོན་ཊོན།"</span>,
+         <span class="hljs-attr">"ascii"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"id"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"lv"</span>:<span class="hljs-string">"Londona"</span>,
+         <span class="hljs-attr">"ca"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"no"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"nn"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ml"</span>:<span class="hljs-string">"ലണ്ടൻ"</span>,
+         <span class="hljs-attr">"my"</span>:<span class="hljs-string">"လန်ဒန်မြို့"</span>,
+         <span class="hljs-attr">"ne"</span>:<span class="hljs-string">"लन्डन"</span>,
+         <span class="hljs-attr">"he"</span>:<span class="hljs-string">"לונדון"</span>,
+         <span class="hljs-attr">"cy"</span>:<span class="hljs-string">"Llundain"</span>,
+         <span class="hljs-attr">"lo"</span>:<span class="hljs-string">"ລອນດອນ"</span>,
+         <span class="hljs-attr">"jv"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"sv"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"mn"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"tg"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"kw"</span>:<span class="hljs-string">"Loundres"</span>,
+         <span class="hljs-attr">"cv"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"az"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"oc"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"th"</span>:<span class="hljs-string">"ลอนดอน"</span>,
+         <span class="hljs-attr">"ru"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"ny"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"bs"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"st"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ro"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"rm"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"ff"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"kk"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"uk"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"pt"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"tr"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"eu"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"ht"</span>:<span class="hljs-string">"Lonn"</span>,
+         <span class="hljs-attr">"ka"</span>:<span class="hljs-string">"ლონდონი"</span>,
+         <span class="hljs-attr">"ur"</span>:<span class="hljs-string">"علاقہ لندن"</span>
+      },
+      <span class="hljs-attr">"lat"</span>:<span class="hljs-number">51.5073219</span>,
+      <span class="hljs-attr">"lon"</span>:<span class="hljs-number">-0.1276474</span>,
+      <span class="hljs-attr">"country"</span>:<span class="hljs-string">"GB"</span>,
+      <span class="hljs-attr">"state"</span>:<span class="hljs-string">"England"</span>
+   },
+   {
+      <span class="hljs-attr">"name"</span>:<span class="hljs-string">"City of London"</span>,
+      <span class="hljs-attr">"local_names"</span>:{
+         <span class="hljs-attr">"es"</span>:<span class="hljs-string">"City de Londres"</span>,
+         <span class="hljs-attr">"ru"</span>:<span class="hljs-string">"Сити"</span>,
+         <span class="hljs-attr">"ur"</span>:<span class="hljs-string">"لندن شہر"</span>,
+         <span class="hljs-attr">"zh"</span>:<span class="hljs-string">"倫敦市"</span>,
+         <span class="hljs-attr">"en"</span>:<span class="hljs-string">"City of London"</span>,
+         <span class="hljs-attr">"pt"</span>:<span class="hljs-string">"Cidade de Londres"</span>,
+         <span class="hljs-attr">"fr"</span>:<span class="hljs-string">"Cité de Londres"</span>,
+         <span class="hljs-attr">"uk"</span>:<span class="hljs-string">"Лондонське Сіті"</span>,
+         <span class="hljs-attr">"he"</span>:<span class="hljs-string">"הסיטי של לונדון"</span>,
+         <span class="hljs-attr">"hi"</span>:<span class="hljs-string">"सिटी ऑफ़ लंदन"</span>,
+         <span class="hljs-attr">"ko"</span>:<span class="hljs-string">"시티 오브 런던"</span>,
+         <span class="hljs-attr">"lt"</span>:<span class="hljs-string">"Londono Sitis"</span>
+      },
+      <span class="hljs-attr">"lat"</span>:<span class="hljs-number">51.5156177</span>,
+      <span class="hljs-attr">"lon"</span>:<span class="hljs-number">-0.0919983</span>,
+      <span class="hljs-attr">"country"</span>:<span class="hljs-string">"GB"</span>,
+      <span class="hljs-attr">"state"</span>:<span class="hljs-string">"England"</span>
+   },
+   {
+      <span class="hljs-attr">"name"</span>:<span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"local_names"</span>:{
+         <span class="hljs-attr">"el"</span>:<span class="hljs-string">"Λόντον"</span>,
+         <span class="hljs-attr">"fr"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"oj"</span>:<span class="hljs-string">"Baketigweyaang"</span>,
+         <span class="hljs-attr">"en"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"bn"</span>:<span class="hljs-string">"লন্ডন"</span>,
+         <span class="hljs-attr">"be"</span>:<span class="hljs-string">"Лондан"</span>,
+         <span class="hljs-attr">"ko"</span>:<span class="hljs-string">"런던"</span>,
+         <span class="hljs-attr">"he"</span>:<span class="hljs-string">"לונדון"</span>,
+         <span class="hljs-attr">"ru"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"lt"</span>:<span class="hljs-string">"Londonas"</span>,
+         <span class="hljs-attr">"hy"</span>:<span class="hljs-string">"Լոնտոն"</span>,
+         <span class="hljs-attr">"ga"</span>:<span class="hljs-string">"Londain"</span>,
+         <span class="hljs-attr">"ja"</span>:<span class="hljs-string">"ロンドン"</span>,
+         <span class="hljs-attr">"yi"</span>:<span class="hljs-string">"לאנדאן"</span>,
+         <span class="hljs-attr">"cr"</span>:<span class="hljs-string">"ᓬᐊᐣᑕᐣ"</span>,
+         <span class="hljs-attr">"iu"</span>:<span class="hljs-string">"ᓚᓐᑕᓐ"</span>,
+         <span class="hljs-attr">"ar"</span>:<span class="hljs-string">"لندن"</span>,
+         <span class="hljs-attr">"lv"</span>:<span class="hljs-string">"Landona"</span>,
+         <span class="hljs-attr">"fa"</span>:<span class="hljs-string">"لندن"</span>,
+         <span class="hljs-attr">"ug"</span>:<span class="hljs-string">"لوندۇن"</span>,
+         <span class="hljs-attr">"th"</span>:<span class="hljs-string">"ลอนดอน"</span>,
+         <span class="hljs-attr">"ka"</span>:<span class="hljs-string">"ლონდონი"</span>
+      },
+      <span class="hljs-attr">"lat"</span>:<span class="hljs-number">42.9832406</span>,
+      <span class="hljs-attr">"lon"</span>:<span class="hljs-number">-81.243372</span>,
+      <span class="hljs-attr">"country"</span>:<span class="hljs-string">"CA"</span>,
+      <span class="hljs-attr">"state"</span>:<span class="hljs-string">"Ontario"</span>
+   },
+   {
+      <span class="hljs-attr">"name"</span>:<span class="hljs-string">"Chelsea"</span>,
+      <span class="hljs-attr">"local_names"</span>:{
+         <span class="hljs-attr">"id"</span>:<span class="hljs-string">"Chelsea, London"</span>,
+         <span class="hljs-attr">"uk"</span>:<span class="hljs-string">"Челсі"</span>,
+         <span class="hljs-attr">"hi"</span>:<span class="hljs-string">"चेल्सी, लंदन"</span>,
+         <span class="hljs-attr">"ga"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"es"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"de"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"af"</span>:<span class="hljs-string">"Chelsea, Londen"</span>,
+         <span class="hljs-attr">"vi"</span>:<span class="hljs-string">"Chelsea, Luân Đôn"</span>,
+         <span class="hljs-attr">"pl"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"pt"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"da"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"ko"</span>:<span class="hljs-string">"첼시"</span>,
+         <span class="hljs-attr">"sv"</span>:<span class="hljs-string">"Chelsea, London"</span>,
+         <span class="hljs-attr">"nl"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"az"</span>:<span class="hljs-string">"Çelsi"</span>,
+         <span class="hljs-attr">"it"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"hu"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"no"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"fr"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"he"</span>:<span class="hljs-string">"צ'לסי"</span>,
+         <span class="hljs-attr">"eu"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"ru"</span>:<span class="hljs-string">"Челси"</span>,
+         <span class="hljs-attr">"ar"</span>:<span class="hljs-string">"تشيلسي"</span>,
+         <span class="hljs-attr">"en"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"el"</span>:<span class="hljs-string">"Τσέλσι"</span>,
+         <span class="hljs-attr">"tr"</span>:<span class="hljs-string">"Chelsea, Londra"</span>,
+         <span class="hljs-attr">"zh"</span>:<span class="hljs-string">"車路士"</span>,
+         <span class="hljs-attr">"sh"</span>:<span class="hljs-string">"Chelsea, London"</span>,
+         <span class="hljs-attr">"ja"</span>:<span class="hljs-string">"チェルシー"</span>,
+         <span class="hljs-attr">"ur"</span>:<span class="hljs-string">"چیلسی، لندن"</span>,
+         <span class="hljs-attr">"sk"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"fa"</span>:<span class="hljs-string">"چلسی"</span>,
+         <span class="hljs-attr">"et"</span>:<span class="hljs-string">"Chelsea"</span>
+      },
+      <span class="hljs-attr">"lat"</span>:<span class="hljs-number">51.4875167</span>,
+      <span class="hljs-attr">"lon"</span>:<span class="hljs-number">-0.1687007</span>,
+      <span class="hljs-attr">"country"</span>:<span class="hljs-string">"GB"</span>,
+      <span class="hljs-attr">"state"</span>:<span class="hljs-string">"England"</span>
+   },
+   {
+      <span class="hljs-attr">"name"</span>:<span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"lat"</span>:<span class="hljs-number">37.1289771</span>,
+      <span class="hljs-attr">"lon"</span>:<span class="hljs-number">-84.0832646</span>,
+      <span class="hljs-attr">"country"</span>:<span class="hljs-string">"US"</span>,
+      <span class="hljs-attr">"state"</span>:<span class="hljs-string">"Kentucky"</span>
+   }
+]
+                </code>
+              </pre>
+                     <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+                  </div>
+               </section>
+               <section id="direct_name_example">
+                  <p class="sub-header">Example of API response</p>
+                  <div class="response open">
+                     <div class="api">
+                        <code>Example of API response</code>
+                     <div class="tools"><button class="tooltip-btn"><img src="./Geocoding API - OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     <div class="content">
+                        <pre>                <code class="json hljs">
+[
+   {
+      <span class="hljs-attr">"name"</span>:<span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"local_names"</span>:{
+         <span class="hljs-attr">"ms"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"gu"</span>:<span class="hljs-string">"લંડન"</span>,
+         <span class="hljs-attr">"is"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"wa"</span>:<span class="hljs-string">"Londe"</span>,
+         <span class="hljs-attr">"mg"</span>:<span class="hljs-string">"Lôndôna"</span>,
+         <span class="hljs-attr">"gl"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"om"</span>:<span class="hljs-string">"Landan"</span>,
+         <span class="hljs-attr">"ku"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"tw"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"mk"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"ee"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"fj"</span>:<span class="hljs-string">"Lodoni"</span>,
+         <span class="hljs-attr">"gd"</span>:<span class="hljs-string">"Lunnainn"</span>,
+         <span class="hljs-attr">"ky"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"yo"</span>:<span class="hljs-string">"Lọndọnu"</span>,
+         <span class="hljs-attr">"zu"</span>:<span class="hljs-string">"ILondon"</span>,
+         <span class="hljs-attr">"bg"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"tk"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"co"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"sh"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"de"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"kl"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"bi"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"km"</span>:<span class="hljs-string">"ឡុងដ៍"</span>,
+         <span class="hljs-attr">"lt"</span>:<span class="hljs-string">"Londonas"</span>,
+         <span class="hljs-attr">"fi"</span>:<span class="hljs-string">"Lontoo"</span>,
+         <span class="hljs-attr">"fy"</span>:<span class="hljs-string">"Londen"</span>,
+         <span class="hljs-attr">"ba"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"sc"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"feature_name"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ja"</span>:<span class="hljs-string">"ロンドン"</span>,
+         <span class="hljs-attr">"am"</span>:<span class="hljs-string">"ለንደን"</span>,
+         <span class="hljs-attr">"sk"</span>:<span class="hljs-string">"Londýn"</span>,
+         <span class="hljs-attr">"mr"</span>:<span class="hljs-string">"लंडन"</span>,
+         <span class="hljs-attr">"es"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"sq"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"te"</span>:<span class="hljs-string">"లండన్"</span>,
+         <span class="hljs-attr">"br"</span>:<span class="hljs-string">"Londrez"</span>,
+         <span class="hljs-attr">"uz"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"da"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"sw"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"fa"</span>:<span class="hljs-string">"لندن"</span>,
+         <span class="hljs-attr">"sr"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"cu"</span>:<span class="hljs-string">"Лондонъ"</span>,
+         <span class="hljs-attr">"ln"</span>:<span class="hljs-string">"Lóndɛlɛ"</span>,
+         <span class="hljs-attr">"na"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"wo"</span>:<span class="hljs-string">"Londar"</span>,
+         <span class="hljs-attr">"ig"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"to"</span>:<span class="hljs-string">"Lonitoni"</span>,
+         <span class="hljs-attr">"ta"</span>:<span class="hljs-string">"இலண்டன்"</span>,
+         <span class="hljs-attr">"mt"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"ar"</span>:<span class="hljs-string">"لندن"</span>,
+         <span class="hljs-attr">"su"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ab"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"ps"</span>:<span class="hljs-string">"لندن"</span>,
+         <span class="hljs-attr">"bm"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"mi"</span>:<span class="hljs-string">"Rānana"</span>,
+         <span class="hljs-attr">"kn"</span>:<span class="hljs-string">"ಲಂಡನ್"</span>,
+         <span class="hljs-attr">"kv"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"os"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"bn"</span>:<span class="hljs-string">"লন্ডন"</span>,
+         <span class="hljs-attr">"li"</span>:<span class="hljs-string">"Londe"</span>,
+         <span class="hljs-attr">"vi"</span>:<span class="hljs-string">"Luân Đôn"</span>,
+         <span class="hljs-attr">"zh"</span>:<span class="hljs-string">"伦敦"</span>,
+         <span class="hljs-attr">"eo"</span>:<span class="hljs-string">"Londono"</span>,
+         <span class="hljs-attr">"ha"</span>:<span class="hljs-string">"Landan"</span>,
+         <span class="hljs-attr">"tt"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"lb"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ce"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"hu"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"it"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"tl"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"pl"</span>:<span class="hljs-string">"Londyn"</span>,
+         <span class="hljs-attr">"sm"</span>:<span class="hljs-string">"Lonetona"</span>,
+         <span class="hljs-attr">"en"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"vo"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"el"</span>:<span class="hljs-string">"Λονδίνο"</span>,
+         <span class="hljs-attr">"sn"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"fr"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"cs"</span>:<span class="hljs-string">"Londýn"</span>,
+         <span class="hljs-attr">"io"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"hi"</span>:<span class="hljs-string">"लंदन"</span>,
+         <span class="hljs-attr">"et"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"pa"</span>:<span class="hljs-string">"ਲੰਡਨ"</span>,
+         <span class="hljs-attr">"av"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"ko"</span>:<span class="hljs-string">"런던"</span>,
+         <span class="hljs-attr">"bh"</span>:<span class="hljs-string">"लंदन"</span>,
+         <span class="hljs-attr">"yi"</span>:<span class="hljs-string">"לאנדאן"</span>,
+         <span class="hljs-attr">"sa"</span>:<span class="hljs-string">"लन्डन्"</span>,
+         <span class="hljs-attr">"sl"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"hr"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"si"</span>:<span class="hljs-string">"ලන්ඩන්"</span>,
+         <span class="hljs-attr">"so"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"gn"</span>:<span class="hljs-string">"Lóndyre"</span>,
+         <span class="hljs-attr">"ay"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"se"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"sd"</span>:<span class="hljs-string">"لنڊن"</span>,
+         <span class="hljs-attr">"af"</span>:<span class="hljs-string">"Londen"</span>,
+         <span class="hljs-attr">"ga"</span>:<span class="hljs-string">"Londain"</span>,
+         <span class="hljs-attr">"or"</span>:<span class="hljs-string">"ଲଣ୍ଡନ"</span>,
+         <span class="hljs-attr">"ia"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ie"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ug"</span>:<span class="hljs-string">"لوندۇن"</span>,
+         <span class="hljs-attr">"nl"</span>:<span class="hljs-string">"Londen"</span>,
+         <span class="hljs-attr">"gv"</span>:<span class="hljs-string">"Lunnin"</span>,
+         <span class="hljs-attr">"qu"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"be"</span>:<span class="hljs-string">"Лондан"</span>,
+         <span class="hljs-attr">"an"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"fo"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"hy"</span>:<span class="hljs-string">"Լոնդոն"</span>,
+         <span class="hljs-attr">"nv"</span>:<span class="hljs-string">"Tooh Dineʼé Bikin Haalʼá"</span>,
+         <span class="hljs-attr">"bo"</span>:<span class="hljs-string">"ལོན་ཊོན།"</span>,
+         <span class="hljs-attr">"ascii"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"id"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"lv"</span>:<span class="hljs-string">"Londona"</span>,
+         <span class="hljs-attr">"ca"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"no"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"nn"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ml"</span>:<span class="hljs-string">"ലണ്ടൻ"</span>,
+         <span class="hljs-attr">"my"</span>:<span class="hljs-string">"လန်ဒန်မြို့"</span>,
+         <span class="hljs-attr">"ne"</span>:<span class="hljs-string">"लन्डन"</span>,
+         <span class="hljs-attr">"he"</span>:<span class="hljs-string">"לונדון"</span>,
+         <span class="hljs-attr">"cy"</span>:<span class="hljs-string">"Llundain"</span>,
+         <span class="hljs-attr">"lo"</span>:<span class="hljs-string">"ລອນດອນ"</span>,
+         <span class="hljs-attr">"jv"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"sv"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"mn"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"tg"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"kw"</span>:<span class="hljs-string">"Loundres"</span>,
+         <span class="hljs-attr">"cv"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"az"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"oc"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"th"</span>:<span class="hljs-string">"ลอนดอน"</span>,
+         <span class="hljs-attr">"ru"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"ny"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"bs"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"st"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"ro"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"rm"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"ff"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"kk"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"uk"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"pt"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"tr"</span>:<span class="hljs-string">"Londra"</span>,
+         <span class="hljs-attr">"eu"</span>:<span class="hljs-string">"Londres"</span>,
+         <span class="hljs-attr">"ht"</span>:<span class="hljs-string">"Lonn"</span>,
+         <span class="hljs-attr">"ka"</span>:<span class="hljs-string">"ლონდონი"</span>,
+         <span class="hljs-attr">"ur"</span>:<span class="hljs-string">"علاقہ لندن"</span>
+      },
+      <span class="hljs-attr">"lat"</span>:<span class="hljs-number">51.5073219</span>,
+      <span class="hljs-attr">"lon"</span>:<span class="hljs-number">-0.1276474</span>,
+      <span class="hljs-attr">"country"</span>:<span class="hljs-string">"GB"</span>,
+      <span class="hljs-attr">"state"</span>:<span class="hljs-string">"England"</span>
+   },
+   {
+      <span class="hljs-attr">"name"</span>:<span class="hljs-string">"City of London"</span>,
+      <span class="hljs-attr">"local_names"</span>:{
+         <span class="hljs-attr">"es"</span>:<span class="hljs-string">"City de Londres"</span>,
+         <span class="hljs-attr">"ru"</span>:<span class="hljs-string">"Сити"</span>,
+         <span class="hljs-attr">"ur"</span>:<span class="hljs-string">"لندن شہر"</span>,
+         <span class="hljs-attr">"zh"</span>:<span class="hljs-string">"倫敦市"</span>,
+         <span class="hljs-attr">"en"</span>:<span class="hljs-string">"City of London"</span>,
+         <span class="hljs-attr">"pt"</span>:<span class="hljs-string">"Cidade de Londres"</span>,
+         <span class="hljs-attr">"fr"</span>:<span class="hljs-string">"Cité de Londres"</span>,
+         <span class="hljs-attr">"uk"</span>:<span class="hljs-string">"Лондонське Сіті"</span>,
+         <span class="hljs-attr">"he"</span>:<span class="hljs-string">"הסיטי של לונדון"</span>,
+         <span class="hljs-attr">"hi"</span>:<span class="hljs-string">"सिटी ऑफ़ लंदन"</span>,
+         <span class="hljs-attr">"ko"</span>:<span class="hljs-string">"시티 오브 런던"</span>,
+         <span class="hljs-attr">"lt"</span>:<span class="hljs-string">"Londono Sitis"</span>
+      },
+      <span class="hljs-attr">"lat"</span>:<span class="hljs-number">51.5156177</span>,
+      <span class="hljs-attr">"lon"</span>:<span class="hljs-number">-0.0919983</span>,
+      <span class="hljs-attr">"country"</span>:<span class="hljs-string">"GB"</span>,
+      <span class="hljs-attr">"state"</span>:<span class="hljs-string">"England"</span>
+   },
+   {
+      <span class="hljs-attr">"name"</span>:<span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"local_names"</span>:{
+         <span class="hljs-attr">"el"</span>:<span class="hljs-string">"Λόντον"</span>,
+         <span class="hljs-attr">"fr"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"oj"</span>:<span class="hljs-string">"Baketigweyaang"</span>,
+         <span class="hljs-attr">"en"</span>:<span class="hljs-string">"London"</span>,
+         <span class="hljs-attr">"bn"</span>:<span class="hljs-string">"লন্ডন"</span>,
+         <span class="hljs-attr">"be"</span>:<span class="hljs-string">"Лондан"</span>,
+         <span class="hljs-attr">"ko"</span>:<span class="hljs-string">"런던"</span>,
+         <span class="hljs-attr">"he"</span>:<span class="hljs-string">"לונדון"</span>,
+         <span class="hljs-attr">"ru"</span>:<span class="hljs-string">"Лондон"</span>,
+         <span class="hljs-attr">"lt"</span>:<span class="hljs-string">"Londonas"</span>,
+         <span class="hljs-attr">"hy"</span>:<span class="hljs-string">"Լոնտոն"</span>,
+         <span class="hljs-attr">"ga"</span>:<span class="hljs-string">"Londain"</span>,
+         <span class="hljs-attr">"ja"</span>:<span class="hljs-string">"ロンドン"</span>,
+         <span class="hljs-attr">"yi"</span>:<span class="hljs-string">"לאנדאן"</span>,
+         <span class="hljs-attr">"cr"</span>:<span class="hljs-string">"ᓬᐊᐣᑕᐣ"</span>,
+         <span class="hljs-attr">"iu"</span>:<span class="hljs-string">"ᓚᓐᑕᓐ"</span>,
+         <span class="hljs-attr">"ar"</span>:<span class="hljs-string">"لندن"</span>,
+         <span class="hljs-attr">"lv"</span>:<span class="hljs-string">"Landona"</span>,
+         <span class="hljs-attr">"fa"</span>:<span class="hljs-string">"لندن"</span>,
+         <span class="hljs-attr">"ug"</span>:<span class="hljs-string">"لوندۇن"</span>,
+         <span class="hljs-attr">"th"</span>:<span class="hljs-string">"ลอนดอน"</span>,
+         <span class="hljs-attr">"ka"</span>:<span class="hljs-string">"ლონდონი"</span>
+      },
+      <span class="hljs-attr">"lat"</span>:<span class="hljs-number">42.9832406</span>,
+      <span class="hljs-attr">"lon"</span>:<span class="hljs-number">-81.243372</span>,
+      <span class="hljs-attr">"country"</span>:<span class="hljs-string">"CA"</span>,
+      <span class="hljs-attr">"state"</span>:<span class="hljs-string">"Ontario"</span>
+   },
+   {
+      <span class="hljs-attr">"name"</span>:<span class="hljs-string">"Chelsea"</span>,
+      <span class="hljs-attr">"local_names"</span>:{
+         <span class="hljs-attr">"id"</span>:<span class="hljs-string">"Chelsea, London"</span>,
+         <span class="hljs-attr">"uk"</span>:<span class="hljs-string">"Челсі"</span>,
+         <span class="hljs-attr">"hi"</span>:<span class="hljs-string">"चेल्सी, लंदन"</span>,
+         <span class="hljs-attr">"ga"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"es"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"de"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"af"</span>:<span class="hljs-string">"Chelsea, Londen"</span>,
+         <span class="hljs-attr">"vi"</span>:<span class="hljs-string">"Chelsea, Luân Đôn"</span>,
+         <span class="hljs-attr">"pl"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"pt"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"da"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"ko"</span>:<span class="hljs-string">"첼시"</span>,
+         <span class="hljs-attr">"sv"</span>:<span class="hljs-string">"Chelsea, London"</span>,
+         <span class="hljs-attr">"nl"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"az"</span>:<span class="hljs-string">"Çelsi"</span>,
+         <span class="hljs-attr">"it"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"hu"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"no"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"fr"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"he"</span>:<span class="hljs-string">"צ'לסי"</span>,
+         <span class="hljs-attr">"eu"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"ru"</span>:<span class="hljs-string">"Челси"</span>,
+         <span class="hljs-attr">"ar"</span>:<span class="hljs-string">"تشيلسي"</span>,
+         <span class="hljs-attr">"en"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"el"</span>:<span class="hljs-string">"Τσέλσι"</span>,
+         <span class="hljs-attr">"tr"</span>:<span class="hljs-string">"Chelsea, Londra"</span>,
+         <span class="hljs-attr">"zh"</span>:<span class="hljs-string">"車路士"</span>,
+         <span class="hljs-attr">"sh"</span>:<span class="hljs-string">"Chelsea, London"</span>,
+         <span class="hljs-attr">"ja"</span>:<span class="hljs-string">"チェルシー"</span>,
+         <span class="hljs-attr">"ur"</span>:<span class="hljs-string">"چیلسی، لندن"</span>,
+         <span class="hljs-attr">"sk"</span>:<span class="hljs-string">"Chelsea"</span>,
+         <span class="hljs-attr">"fa"</span>:<span class="hljs-string">"چلسی"</span>,
+         <span class="hljs-attr">"et"</span>:<span class="hljs-string">"Chelsea"</span>
+      },
+      <span class="hljs-attr">"lat"</span>:<span class="hljs-number">51.4875167</span>,
+      <span class="hljs-attr">"lon"</span>:<span class="hljs-number">-0.1687007</span>,
+      <span class="hljs-attr">"country"</span>:<span class="hljs-string">"GB"</span>,
+      <span class="hljs-attr">"state"</span>:<span class="hljs-string">"England"</span>
+   },
+   {
+      <span class="hljs-attr">"name"</span>:<span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"lat"</span>:<span class="hljs-number">37.1289771</span>,
+      <span class="hljs-attr">"lon"</span>:<span class="hljs-number">-84.0832646</span>,
+      <span class="hljs-attr">"country"</span>:<span class="hljs-string">"US"</span>,
+      <span class="hljs-attr">"state"</span>:<span class="hljs-string">"Kentucky"</span>
+   }
+]
+                </code>
+              </pre>
+                     <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+                  </div>
+               </section>
+               <section id="direct_name_fields">
+                  <p class="sub-header">Fields in API response</p>
+                  <div class="info-board info-board-orange">
+                     Please note that the fields present will vary based on a country to which a location belongs as
+                     well as a specific location.
+                  </div>
+                  <ul class="docs-list">
+                     <li><code>name</code> Name of the found location
+                     </li>
+                     <li><code>local_names</code>
+
+                        <ul>
+                           <li><code>local_names.[language code]</code> Name of the found location in different
+                              languages.
+                              The list of names can be different for different locations
+                           </li>
+                           <li><code>local_names.ascii</code> Internal field
+                           </li>
+                           <li><code>local_names.feature_name</code> Internal field
+                           </li>
+                        </ul>
+                     </li>
+                     <li><code>lat</code> Geographical coordinates of the found location (latitude)
+                     </li>
+                     <li><code>lon</code> Geographical coordinates of the found location (longitude)
+                     </li>
+                     <li><code>country</code> Country of the found location
+                     </li>
+                     <li><code>state</code> <span class="sub">(where available)</span> State of the found location
+                     </li>
+                  </ul>
+               </section>
+            </section>
+            <section id="direct_zip">
+               <h2>Coordinates by zip/post code</h2>
+
+               <section id="direct_zip_how">
+                  <h3>How to make an API call</h3>
+                  <p class="sub-header">API call</p>
+                  <div class="api">
+                     <code>http://api.openweathermap.org/geo/1.0/zip?zip=<span class="query_param"><span class="query_param">{zip code}</span>,<span class="query_param">{country code}</span></span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+                  <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <table class="material-table">
+                     <tbody><tr>
+                        <th colspan="3">Parameters</th>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">zip code</code></td>
+                        <td class="sub">required</td>
+                        <td>Zip/post code and country code divided by comma. Please use ISO 3166 country codes.</td>
+                     </tr>
+                     <tr>
+                        <td><code class="nowrap">appid</code></td>
+                        <td class="sub">required</td>
+                        <td>Your unique API key (you can always find it on your account page under the <a href="https://home.openweathermap.org/api_keys" target="_blank">"API key" tab</a>)</td>
+                     </tr>
+                  </tbody></table>
+                  <p class="sub-header">Example of API call</p>
+                  <div class="response">
+                     <div class="api">
+                        <code> http://api.openweathermap.org/geo/1.0/zip?zip=E14,GB&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank">{API key}</a></code>
+                     <div class="tools"><button class="tooltip-btn"><img src="./Geocoding API - OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     <div class="content">
+                        <pre>                <code class="json hljs">
+{
+  <span class="hljs-attr">"zip"</span>: <span class="hljs-string">"E14"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Cubitt Town"</span>,
+  <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.4969</span>,
+  <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.0087</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"GB"</span>
+}
+
+                </code>
+              </pre>
+                     <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+                  </div>
+               </section>
+               <section id="direct_zip_example">
+                  <p class="sub-header">Example of API response</p>
+                  <div class="response open">
+                     <div class="api">
+                        <code>Example of API response</code>
+                     <div class="tools"><button class="tooltip-btn"><img src="./Geocoding API - OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                     <div class="content">
+                        <pre>                <code class="json hljs">
+{
+  <span class="hljs-attr">"zip"</span>: <span class="hljs-string">"90210"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Beverly Hills"</span>,
+  <span class="hljs-attr">"lat"</span>: <span class="hljs-number">34.0901</span>,
+  <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-118.4065</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"US"</span>
+}
+                </code>
+              </pre>
+                     <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+                  </div>
+               </section>
+               <section id="direct_zip_fields">
+                  <p class="sub-header">Fields in API response</p>
+                  <ul class="docs-list">
+                     <li><code>zip</code> Specified zip/post code in the API request
+                     </li>
+                     <li><code>name</code> Name of the found area
+                     </li>
+                     <li><code>lat</code> Geographical coordinates of the centroid of found zip/post code (latitude)
+                     </li>
+                     <li><code>lon</code> Geographical coordinates of the centroid of found zip/post code (longitude)
+                     </li>
+                     <li><code>country</code> Country of the found zip/post code
+                  </li></ul>
+               </section>
+            </section>
+         </section>
+
+         <section id="reverse">
+            <h1>Reverse geocoding</h1>
+            <p>Reverse geocoding allows to get name of the location (city name or area name) by using geografical
+               coordinates (lat, lon). The <code>limit</code> parameter in the API call allows you to cap how many
+               location names you will see in the API response. </p>
+            <section id="reverse_how">
+               <h3>How to make an API call</h3>
+               <p class="sub-header">API call</p>
+               <div class="api">
+                  <code>http://api.openweathermap.org/geo/1.0/reverse?lat=<span class="query_param"><span class="query_param">{lat}</span></span>&amp;lon=<span class="query_param"><span class="query_param">{lon}</span></span>&amp;limit=<span class="query_param"><span class="query_param">{limit}</span></span>&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank"><span class="query_param">{API key}</span></a></code>
+               <div class="tools"><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+               <table class="material-table">
+                  <tbody><tr>
+                     <th colspan="3">Parameters</th>
+                  </tr>
+                  <tr>
+                     <td><code class="nowrap">lat, lon</code></td>
+                     <td class="sub">required</td>
+                     <td>Geographical coordinates (latitude, longitude)</td>
+                  </tr>
+                  <tr>
+                     <td><code class="nowrap">appid</code></td>
+                     <td class="sub">required</td>
+                     <td>Your unique API key (you can always find it on your account page under the <a href="https://home.openweathermap.org/api_keys" target="_blank">"API key" tab</a>)</td>
+                  </tr>
+                  <tr>
+                     <td><code>limit</code></td>
+                     <td class="sub">optional</td>
+                     <td>Number of the location names in the API response (several results can be returned in the API
+                        response)</td>
+                  </tr>
+               </tbody></table>
+               <p class="sub-header">Example of API call</p>
+               <div class="response">
+                  <div class="api">
+                     <code>http://api.openweathermap.org/geo/1.0/reverse?lat=51.5098&amp;lon=-0.1180&amp;limit=5&amp;appid=<a href="https://home.openweathermap.org/api_keys" target="_blank">{API key}</a></code>
+                  <div class="tools"><button class="tooltip-btn"><img src="./Geocoding API - OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <div class="content">
+                     <pre>                   <code class="json hljs">
+[
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"City of London"</span>,
+    <span class="hljs-attr">"local_names"</span>: {
+      <span class="hljs-attr">"ar"</span>: <span class="hljs-string">"مدينة لندن"</span>,
+      <span class="hljs-attr">"ascii"</span>: <span class="hljs-string">"City of London"</span>,
+      <span class="hljs-attr">"bg"</span>: <span class="hljs-string">"Сити"</span>,
+      <span class="hljs-attr">"ca"</span>: <span class="hljs-string">"La City"</span>,
+      <span class="hljs-attr">"de"</span>: <span class="hljs-string">"London City"</span>,
+      <span class="hljs-attr">"el"</span>: <span class="hljs-string">"Σίτι του Λονδίνου"</span>,
+      <span class="hljs-attr">"en"</span>: <span class="hljs-string">"City of London"</span>,
+      <span class="hljs-attr">"fa"</span>: <span class="hljs-string">"سیتی لندن"</span>,
+      <span class="hljs-attr">"feature_name"</span>: <span class="hljs-string">"City of London"</span>,
+      <span class="hljs-attr">"fi"</span>: <span class="hljs-string">"Lontoon City"</span>,
+      <span class="hljs-attr">"fr"</span>: <span class="hljs-string">"Cité de Londres"</span>,
+      <span class="hljs-attr">"gl"</span>: <span class="hljs-string">"Cidade de Londres"</span>,
+      <span class="hljs-attr">"he"</span>: <span class="hljs-string">"הסיטי של לונדון"</span>,
+      <span class="hljs-attr">"hi"</span>: <span class="hljs-string">"सिटी ऑफ़ लंदन"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"Kota London"</span>,
+      <span class="hljs-attr">"it"</span>: <span class="hljs-string">"Londra"</span>,
+      <span class="hljs-attr">"ja"</span>: <span class="hljs-string">"シティ・オブ・ロンドン"</span>,
+      <span class="hljs-attr">"la"</span>: <span class="hljs-string">"Civitas Londinium"</span>,
+      <span class="hljs-attr">"lt"</span>: <span class="hljs-string">"Londono Sitis"</span>,
+      <span class="hljs-attr">"pt"</span>: <span class="hljs-string">"Cidade de Londres"</span>,
+      <span class="hljs-attr">"ru"</span>: <span class="hljs-string">"Сити"</span>,
+      <span class="hljs-attr">"sr"</span>: <span class="hljs-string">"Сити"</span>,
+      <span class="hljs-attr">"th"</span>: <span class="hljs-string">"นครลอนดอน"</span>,
+      <span class="hljs-attr">"tr"</span>: <span class="hljs-string">"Londra Şehri"</span>,
+      <span class="hljs-attr">"vi"</span>: <span class="hljs-string">"Thành phố Luân Đôn"</span>,
+      <span class="hljs-attr">"zu"</span>: <span class="hljs-string">"Idolobha weLondon"</span>
+    },
+    <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.5128</span>,
+    <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.0918</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"GB"</span>
+  },
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"London"</span>,
+    <span class="hljs-attr">"local_names"</span>: {
+      <span class="hljs-attr">"af"</span>: <span class="hljs-string">"Londen"</span>,
+      <span class="hljs-attr">"ar"</span>: <span class="hljs-string">"لندن"</span>,
+      <span class="hljs-attr">"ascii"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"az"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"bg"</span>: <span class="hljs-string">"Лондон"</span>,
+      <span class="hljs-attr">"ca"</span>: <span class="hljs-string">"Londres"</span>,
+      <span class="hljs-attr">"da"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"de"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"el"</span>: <span class="hljs-string">"Λονδίνο"</span>,
+      <span class="hljs-attr">"en"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"eu"</span>: <span class="hljs-string">"Londres"</span>,
+      <span class="hljs-attr">"fa"</span>: <span class="hljs-string">"لندن"</span>,
+      <span class="hljs-attr">"feature_name"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"fi"</span>: <span class="hljs-string">"Lontoo"</span>,
+      <span class="hljs-attr">"fr"</span>: <span class="hljs-string">"Londres"</span>,
+      <span class="hljs-attr">"gl"</span>: <span class="hljs-string">"Londres"</span>,
+      <span class="hljs-attr">"he"</span>: <span class="hljs-string">"לונדון"</span>,
+      <span class="hljs-attr">"hi"</span>: <span class="hljs-string">"लंदन"</span>,
+      <span class="hljs-attr">"hr"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"hu"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"it"</span>: <span class="hljs-string">"Londra"</span>,
+      <span class="hljs-attr">"ja"</span>: <span class="hljs-string">"ロンドン"</span>,
+      <span class="hljs-attr">"la"</span>: <span class="hljs-string">"Londinium"</span>,
+      <span class="hljs-attr">"lt"</span>: <span class="hljs-string">"Londonas"</span>,
+      <span class="hljs-attr">"mk"</span>: <span class="hljs-string">"Лондон"</span>,
+      <span class="hljs-attr">"nl"</span>: <span class="hljs-string">"Londen"</span>,
+      <span class="hljs-attr">"no"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"pl"</span>: <span class="hljs-string">"Londyn"</span>,
+      <span class="hljs-attr">"pt"</span>: <span class="hljs-string">"Londres"</span>,
+      <span class="hljs-attr">"ro"</span>: <span class="hljs-string">"Londra"</span>,
+      <span class="hljs-attr">"ru"</span>: <span class="hljs-string">"Лондон"</span>,
+      <span class="hljs-attr">"sk"</span>: <span class="hljs-string">"Londýn"</span>,
+      <span class="hljs-attr">"sl"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"sr"</span>: <span class="hljs-string">"Лондон"</span>,
+      <span class="hljs-attr">"th"</span>: <span class="hljs-string">"ลอนดอน"</span>,
+      <span class="hljs-attr">"tr"</span>: <span class="hljs-string">"Londra"</span>,
+      <span class="hljs-attr">"vi"</span>: <span class="hljs-string">"Luân Đôn"</span>,
+      <span class="hljs-attr">"zu"</span>: <span class="hljs-string">"ILondon"</span>
+    },
+    <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.5085</span>,
+    <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.1257</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"GB"</span>
+  },
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Islington"</span>,
+    <span class="hljs-attr">"local_names"</span>: {
+      <span class="hljs-attr">"ascii"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"az"</span>: <span class="hljs-string">"İslinqton"</span>,
+      <span class="hljs-attr">"fa"</span>: <span class="hljs-string">"ایزلینتن"</span>,
+      <span class="hljs-attr">"feature_name"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"fr"</span>: <span class="hljs-string">"District londonien d'Islington"</span>,
+      <span class="hljs-attr">"he"</span>: <span class="hljs-string">"איזלינגטון"</span>,
+      <span class="hljs-attr">"ja"</span>: <span class="hljs-string">"イズリントン"</span>,
+      <span class="hljs-attr">"ru"</span>: <span class="hljs-string">"Ислингтон"</span>
+    },
+    <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.5362</span>,
+    <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.103</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"GB"</span>
+  },
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Lewisham"</span>,
+    <span class="hljs-attr">"local_names"</span>: {
+      <span class="hljs-attr">"ascii"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"de"</span>: <span class="hljs-string">"London Borough of Lewisham"</span>,
+      <span class="hljs-attr">"en"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"feature_name"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"fi"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"fr"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"hu"</span>: <span class="hljs-string">"Lewisham kerület"</span>,
+      <span class="hljs-attr">"nl"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"no"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"ro"</span>: <span class="hljs-string">"Lewisham"</span>
+    },
+    <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.4535</span>,
+    <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.018</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"GB"</span>
+  },
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Islington"</span>,
+    <span class="hljs-attr">"local_names"</span>: {
+      <span class="hljs-attr">"ascii"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"de"</span>: <span class="hljs-string">"London Borough of Islington"</span>,
+      <span class="hljs-attr">"en"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"feature_name"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"fr"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"nl"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"no"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"ro"</span>: <span class="hljs-string">"Islington"</span>
+    },
+    <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.547</span>,
+    <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.1094</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"GB"</span>
+  }
+]
+
+                   </code>
+                 </pre>
+                  <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+               </div>
+            </section>
+            <section id="reverse_example">
+               <p class="sub-header">Example of API response</p>
+               <div class="response open">
+                  <div class="api">
+                     <code>Example of API response</code>
+                  <div class="tools"><button class="tooltip-btn"><img src="./Geocoding API - OpenWeatherMap_files/arrow_down.png" class="toggleImg"></button><button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div></div>
+                  <div class="content">
+                     <pre>                   <code class="json hljs">
+[
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"City of London"</span>,
+    <span class="hljs-attr">"local_names"</span>: {
+      <span class="hljs-attr">"ar"</span>: <span class="hljs-string">"مدينة لندن"</span>,
+      <span class="hljs-attr">"ascii"</span>: <span class="hljs-string">"City of London"</span>,
+      <span class="hljs-attr">"bg"</span>: <span class="hljs-string">"Сити"</span>,
+      <span class="hljs-attr">"ca"</span>: <span class="hljs-string">"La City"</span>,
+      <span class="hljs-attr">"de"</span>: <span class="hljs-string">"London City"</span>,
+      <span class="hljs-attr">"el"</span>: <span class="hljs-string">"Σίτι του Λονδίνου"</span>,
+      <span class="hljs-attr">"en"</span>: <span class="hljs-string">"City of London"</span>,
+      <span class="hljs-attr">"fa"</span>: <span class="hljs-string">"سیتی لندن"</span>,
+      <span class="hljs-attr">"feature_name"</span>: <span class="hljs-string">"City of London"</span>,
+      <span class="hljs-attr">"fi"</span>: <span class="hljs-string">"Lontoon City"</span>,
+      <span class="hljs-attr">"fr"</span>: <span class="hljs-string">"Cité de Londres"</span>,
+      <span class="hljs-attr">"gl"</span>: <span class="hljs-string">"Cidade de Londres"</span>,
+      <span class="hljs-attr">"he"</span>: <span class="hljs-string">"הסיטי של לונדון"</span>,
+      <span class="hljs-attr">"hi"</span>: <span class="hljs-string">"सिटी ऑफ़ लंदन"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"Kota London"</span>,
+      <span class="hljs-attr">"it"</span>: <span class="hljs-string">"Londra"</span>,
+      <span class="hljs-attr">"ja"</span>: <span class="hljs-string">"シティ・オブ・ロンドン"</span>,
+      <span class="hljs-attr">"la"</span>: <span class="hljs-string">"Civitas Londinium"</span>,
+      <span class="hljs-attr">"lt"</span>: <span class="hljs-string">"Londono Sitis"</span>,
+      <span class="hljs-attr">"pt"</span>: <span class="hljs-string">"Cidade de Londres"</span>,
+      <span class="hljs-attr">"ru"</span>: <span class="hljs-string">"Сити"</span>,
+      <span class="hljs-attr">"sr"</span>: <span class="hljs-string">"Сити"</span>,
+      <span class="hljs-attr">"th"</span>: <span class="hljs-string">"นครลอนดอน"</span>,
+      <span class="hljs-attr">"tr"</span>: <span class="hljs-string">"Londra Şehri"</span>,
+      <span class="hljs-attr">"vi"</span>: <span class="hljs-string">"Thành phố Luân Đôn"</span>,
+      <span class="hljs-attr">"zu"</span>: <span class="hljs-string">"Idolobha weLondon"</span>
+    },
+    <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.5128</span>,
+    <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.0918</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"GB"</span>
+  },
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"London"</span>,
+    <span class="hljs-attr">"local_names"</span>: {
+      <span class="hljs-attr">"af"</span>: <span class="hljs-string">"Londen"</span>,
+      <span class="hljs-attr">"ar"</span>: <span class="hljs-string">"لندن"</span>,
+      <span class="hljs-attr">"ascii"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"az"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"bg"</span>: <span class="hljs-string">"Лондон"</span>,
+      <span class="hljs-attr">"ca"</span>: <span class="hljs-string">"Londres"</span>,
+      <span class="hljs-attr">"da"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"de"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"el"</span>: <span class="hljs-string">"Λονδίνο"</span>,
+      <span class="hljs-attr">"en"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"eu"</span>: <span class="hljs-string">"Londres"</span>,
+      <span class="hljs-attr">"fa"</span>: <span class="hljs-string">"لندن"</span>,
+      <span class="hljs-attr">"feature_name"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"fi"</span>: <span class="hljs-string">"Lontoo"</span>,
+      <span class="hljs-attr">"fr"</span>: <span class="hljs-string">"Londres"</span>,
+      <span class="hljs-attr">"gl"</span>: <span class="hljs-string">"Londres"</span>,
+      <span class="hljs-attr">"he"</span>: <span class="hljs-string">"לונדון"</span>,
+      <span class="hljs-attr">"hi"</span>: <span class="hljs-string">"लंदन"</span>,
+      <span class="hljs-attr">"hr"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"hu"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"it"</span>: <span class="hljs-string">"Londra"</span>,
+      <span class="hljs-attr">"ja"</span>: <span class="hljs-string">"ロンドン"</span>,
+      <span class="hljs-attr">"la"</span>: <span class="hljs-string">"Londinium"</span>,
+      <span class="hljs-attr">"lt"</span>: <span class="hljs-string">"Londonas"</span>,
+      <span class="hljs-attr">"mk"</span>: <span class="hljs-string">"Лондон"</span>,
+      <span class="hljs-attr">"nl"</span>: <span class="hljs-string">"Londen"</span>,
+      <span class="hljs-attr">"no"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"pl"</span>: <span class="hljs-string">"Londyn"</span>,
+      <span class="hljs-attr">"pt"</span>: <span class="hljs-string">"Londres"</span>,
+      <span class="hljs-attr">"ro"</span>: <span class="hljs-string">"Londra"</span>,
+      <span class="hljs-attr">"ru"</span>: <span class="hljs-string">"Лондон"</span>,
+      <span class="hljs-attr">"sk"</span>: <span class="hljs-string">"Londýn"</span>,
+      <span class="hljs-attr">"sl"</span>: <span class="hljs-string">"London"</span>,
+      <span class="hljs-attr">"sr"</span>: <span class="hljs-string">"Лондон"</span>,
+      <span class="hljs-attr">"th"</span>: <span class="hljs-string">"ลอนดอน"</span>,
+      <span class="hljs-attr">"tr"</span>: <span class="hljs-string">"Londra"</span>,
+      <span class="hljs-attr">"vi"</span>: <span class="hljs-string">"Luân Đôn"</span>,
+      <span class="hljs-attr">"zu"</span>: <span class="hljs-string">"ILondon"</span>
+    },
+    <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.5085</span>,
+    <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.1257</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"GB"</span>
+  },
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Islington"</span>,
+    <span class="hljs-attr">"local_names"</span>: {
+      <span class="hljs-attr">"ascii"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"az"</span>: <span class="hljs-string">"İslinqton"</span>,
+      <span class="hljs-attr">"fa"</span>: <span class="hljs-string">"ایزلینتن"</span>,
+      <span class="hljs-attr">"feature_name"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"fr"</span>: <span class="hljs-string">"District londonien d'Islington"</span>,
+      <span class="hljs-attr">"he"</span>: <span class="hljs-string">"איזלינגטון"</span>,
+      <span class="hljs-attr">"ja"</span>: <span class="hljs-string">"イズリントン"</span>,
+      <span class="hljs-attr">"ru"</span>: <span class="hljs-string">"Ислингтон"</span>
+    },
+    <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.5362</span>,
+    <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.103</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"GB"</span>
+  },
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Lewisham"</span>,
+    <span class="hljs-attr">"local_names"</span>: {
+      <span class="hljs-attr">"ascii"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"de"</span>: <span class="hljs-string">"London Borough of Lewisham"</span>,
+      <span class="hljs-attr">"en"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"feature_name"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"fi"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"fr"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"hu"</span>: <span class="hljs-string">"Lewisham kerület"</span>,
+      <span class="hljs-attr">"nl"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"no"</span>: <span class="hljs-string">"Lewisham"</span>,
+      <span class="hljs-attr">"ro"</span>: <span class="hljs-string">"Lewisham"</span>
+    },
+    <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.4535</span>,
+    <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.018</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"GB"</span>
+  },
+  {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Islington"</span>,
+    <span class="hljs-attr">"local_names"</span>: {
+      <span class="hljs-attr">"ascii"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"de"</span>: <span class="hljs-string">"London Borough of Islington"</span>,
+      <span class="hljs-attr">"en"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"feature_name"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"fr"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"nl"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"no"</span>: <span class="hljs-string">"Islington"</span>,
+      <span class="hljs-attr">"ro"</span>: <span class="hljs-string">"Islington"</span>
+    },
+    <span class="hljs-attr">"lat"</span>: <span class="hljs-number">51.547</span>,
+    <span class="hljs-attr">"lon"</span>: <span class="hljs-number">-0.1094</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"GB"</span>
+  }
+]
+                   </code>
+                 </pre>
+                  <button class="tooltip-btn"><div class="tooltip-docs">Copy</div><img src="./Geocoding API - OpenWeatherMap_files/copy.png" class="copy-img"></button></div>
+               </div>
+            </section>
+            <section id="reverse_fields">
+               <p class="sub-header">Fields in API response</p>
+               <div class="info-board info-board-orange">
+                  Please note that the fields present will vary based on a country to which a location belongs as well
+                  as a specific location.
+               </div>
+               <ul class="docs-list">
+                  <li><code>name</code> Name of the found location
+                  </li>
+                  <li><code>local_names</code>
+
+                     <ul>
+                        <li><code>local_names.[language code]</code> Name of the found location in different languages.
+                           The
+                           list of names can be different for different locations.
+                        </li>
+                        <li><code>local_names.ascii</code> Internal field
+                        </li>
+                        <li><code>local_names.feature_name</code> Internal field
+                        </li>
+                     </ul>
+                  </li>
+                  <li><code>lat</code> Geographical coordinates of the found location (latitude)
+                  </li>
+                  <li><code>lon</code> Geographical coordinates of the found location (longitude)
+                  </li>
+                  <li><code>country</code> Country of the found location
+                  </li>
+                  <li><code>state</code> <span class="sub">(where available)</span> State of the found location
+                  </li>
+               </ul>
+            </section>
+         </section>
+      </div>
+   </div>
+</div>  </main>
+  <div id="footer-website" onclick="toggleFooterSection(event)">
+   <div class="inner-footer-container">
+      <div class="horizontal-section">
+         <div class="footer-section">
+            <p class="section-heading">Product Collections</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/api#current">Current and Forecast APIs</a></li>
+                  <li><a href="https://openweathermap.org/api#history">Historical Weather Data</a></li>
+                  <li><a href="https://openweathermap.org/api#maps">Weather Maps</a></li>
+                  <li><a href="https://dashboard.openweather.co.uk/" target="_blank">Weather Dashboard</a></li>
+                  <li><a href="https://openweathermap.org/widgets-constructor">Widgets</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section">
+            <p class="section-heading">Subscription</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/appid">How to start</a></li>
+                  <li><a href="https://openweathermap.org/price">Pricing</a></li>
+                  <li><a href="https://home.openweathermap.org/users/sign_up">Subscribe for free</a></li>
+                  <li><a href="https://openweathermap.org/faq">FAQ</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section">
+            <p class="section-heading">Company</p>
+            <div class="section-content">
+               <p>OpenWeather is a team of IT experts and data scientists that has been practising deep weather data
+                  science. For each point on the globe, OpenWeather provides historical, current and forecasted weather
+                  data via light-speed APIs. Headquarters in London, UK.</p>
+            </div>
+         </div>
+      </div>
+      <div class="horizontal-section">
+         <div class="footer-section">
+            <p class="section-heading">Technologies</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/technology">Our technology</a></li>
+                  <li><a href="https://openweathermap.org/accuracy-and-quality">Accuracy and quality of weather data</a></li>
+                  <li><a href="https://openweathermap.org/stations">Connect your weather station</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section">
+            <p class="section-heading">Terms &amp; Conditions</p>
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweather.co.uk/storage/app/media/Terms/Openweather_terms_and_conditions_of_sale.pdf" target="_blank">Terms and conditions of sale</a></li>
+                  <li><a href="https://openweather.co.uk/privacy-policy" target="_blank">Privacy Policy</a></li>
+                  <li><a href="https://openweather.co.uk/storage/app/media/Terms/Openweather_website_terms_and_conditions_of_use.pdf" target="_blank">Website terms and conditions</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="footer-section not-foldable">
+            <!-- <p class="section-heading">Contact us</p> -->
+            <div class="section-content">
+               <ul>
+                  <li><a href="https://openweathermap.org/about-us" target="_blank">About us</a></li>
+                  <li><a href="https://openweather.co.uk/about/our-offices" target="_blank">Our offices</a></li>
+                  <li><a href="https://openweather.co.uk/blog/category/weather" target="_blank">Blog</a></li>
+                  <li><a href="https://openweather.co.uk/" target="_blank">OpenWeather for Business</a></li>
+                  <li><a href="https://openweathermap.org/chat">Ulla, OpenWeather AI assistant</a></li>
+                  <li><a href="https://home.openweathermap.org/questions" target="_blank">Ask a question</a></li>
+                  <!--  <li><a href="mailto:info@openweathermap.org">info@openweathermap.org</a>  -->
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="horizontal-section">
+         <div class="footer-section">
+            <div class="my-5">
+               <p>Download OpenWeather app</p>
+               <div>
+                  <a href="https://apps.apple.com/gb/app/openweather/id1535923697" target="_blank">
+                     <img src="./Geocoding API - OpenWeatherMap_files/app-store-badge.svg" alt="Get it on AppStore">
+                  </a>
+                  <a href="https://play.google.com/store/apps/details?id=uk.co.openweather" target="_blank">
+                     <img src="./Geocoding API - OpenWeatherMap_files/google-play-badge.png" class="google-play-img" alt="Get it on Google Play">
+                  </a>
+               </div>
+            </div>
+         </div>
+         <div class="footer-section">
+            <div class="my-5 logo-blocks">
+               <img src="./Geocoding API - OpenWeatherMap_files/RMets_Logo_corp.png" width="200" height="70" alt="RMets logo">
+               <img src="./Geocoding API - OpenWeatherMap_files/CNB_Business_Logo_2024.png" alt="CNB Business logo" width="170" height="170">
+            </div>
+         </div>
+
+      </div>
+      <div class="horizontal-section my-5">
+         <div>
+            <span>Supplier of Achilles UVDB community</span><br>
+            <span id="years-copyright">© 2012 — 2025 OpenWeather ® All rights reserved</span><br><br>
+         </div>
+         <div class="social">
+            <a href="https://www.facebook.com/groups/270748973021342" target="_blank"><img src="./Geocoding API - OpenWeatherMap_files/icon_facebook.png" alt="facebook icon"></a>
+            <a href="https://twitter.com/OpenWeatherMap" target="_blank"><img src="./Geocoding API - OpenWeatherMap_files/icon_x_black.png" alt="x icon"></a>
+            <a href="https://www.linkedin.com/company/9816754" target="_blank"><img src="./Geocoding API - OpenWeatherMap_files/icon_linkedin.png" alt="linkedin icon "></a>
+            <a href="https://medium.com/@openweathermap" target="_blank"><img src="./Geocoding API - OpenWeatherMap_files/new_medium.svg" alt="meduim icon"></a>
+            <a href="https://t.me/openweathermap" target="_blank"><img src="./Geocoding API - OpenWeatherMap_files/icon_telegram.png" alt="telegram icon"></a>
+            <a href="https://github.com/openweathermap" target="_blank"><img src="./Geocoding API - OpenWeatherMap_files/icon_github.png" alt="github icon"></a>
+         </div>
+      </div>
+      <div class="horizontal-section"></div>
+   </div>
+</div>  <script src="./Geocoding API - OpenWeatherMap_files/raven.min.js"></script>
+<script>Raven.config('http://66df88eb63e94f27964b84031e49b358@sentry.owm.io/16').install()</script>  <script src="./Geocoding API - OpenWeatherMap_files/bundle_owm_postload.c31872127471c475ade1.js"></script>
+<script src="./Geocoding API - OpenWeatherMap_files/advertising.js"></script>    <link href="./Geocoding API - OpenWeatherMap_files/chat-banner.css" rel="stylesheet">
+<link href="./Geocoding API - OpenWeatherMap_files/assistant-index.DVVhxENO.css" rel="stylesheet">
+
+<style>
+  #owm-chat-bot p {
+    font-weight: normal;
+  }
+
+  #owm-chat-bot>div {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .pop-up-content h2 {
+    margin-top: 19.2px;
+  }
+
+  .owm-chat-bot-description ul {
+    margin: 0;
+    padding: 16px;
+    background-color: #4f4f4f;
+    color: white;
+    border-radius: 4.8px;
+  }
+
+  .owm-chat-bot-description ul.dashed {
+    list-style-type: none;
+  }
+
+  /* .owm-chat-bot-description ul.dashed>li {
+    text-indent: -1rem;
+  } */
+
+  .owm-chat-bot-description ul.dashed>li:before {
+    content: "- ";
+    text-indent: -16px;
+  }
+</style>
+
+<div id="owm-chat-bot" data-key="5796abbde9106b7da4febfae8c44c232" data-popup="" style="display: none; position: fixed; z-index: 50000; bottom: 16px; right: 16px; height: 640px; max-height: calc(100% - 32px); width: 480px; max-width: calc(100% - 32px);"><div class="flex h-full grow flex-col rounded-xl border bg-white shadow-lg"><div class="flex items-center justify-between rounded-t-xl border-t bg-pearl-800 p-4 font-title"><div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.4 36.9" class="h-10 w-10 text-primary-400"><path d="M45.1 22.9a1.5 1.5 0 01-1.5 1.5H27.9a1.5 1.5 0 00-1.4 1.6 1.5 1.5 0 001.4 1.5h.7a1.5 1.5 0 011.5 1.5 1.5 1.5 0 01-1.5 1.5h-1.9a1.5 1.5 0 00-1.5 1.5 1.5 1.5 0 001.5 1.5h10.2a1.5 1.5 0 011.5 1.5 1.5 1.5 0 01-1.5 1.5h-27A1.5 1.5 0 018.4 35a1.5 1.5 0 011.5-1.5h6.5a1.5 1.5 0 001.5-1.5 1.5 1.5 0 00-1.5-1.5H6.8A1.5 1.5 0 015.3 29a1.3 1.3 0 01.1-.6 1.6 1.6 0 011.4-.9h.5A1.5 1.5 0 008.8 26a1.5 1.5 0 00-1.5-1.5H1.5A1.5 1.5 0 010 23a1.5 1.5 0 011.5-1.5h1.1a26.4 26.4 0 01-.2-2.9 18.5 18.5 0 1136.9 0 26.4 26.4 0 01-.2 2.9h4.5a1.5 1.5 0 011.5 1.4z" fill="currentColor"></path><path d="M47.4 29.1a1.5 1.5 0 01-1.5 1.5h-3.3a1.5 1.5 0 01-1.5-1.5 1.5 1.5 0 011.5-1.5h3.3a1.5 1.5 0 011.5 1.5z" fill="currentColor"></path><path d="M38.6 29.1a1.5 1.5 0 01-1.5 1.5h-3.4a1.5 1.5 0 01-1.4-1.5 1.5 1.5 0 011.4-1.5h3.4a1.5 1.5 0 011.5 1.5z" fill="currentColor"></path></svg><div class="text-md font-title font-bold text-pearl-100">Ask Ulla Weather Assistant</div></div><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer text-pearl-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg></div><div class="messages flex-1 overflow-auto"><div class="flex flex-col gap-y-2 p-3"><div class="flex gap-3 justify-start"><div class="bubble answer"><div><p>Hello, it's Ulla Weather Assistant, please feel free to ask me questions about the weather and get weather-related recommendations for any location worldwide.</p>
+</div></div></div></div></div><form class="flex items-center justify-between border-t p-3"><div class="relative flex-1"><input type="text" class="w-full rounded border py-2 pl-4 pr-10 shadow focus:outline-none" placeholder="Type your message here..." value=""><button type="submit" disabled="" class="absolute inset-y-0 right-0 flex items-center justify-center px-3 text-primary-400 focus:outline-none "><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="size-6"><path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z"></path></svg></button></div></form></div></div>
+
+<script>
+  `ASSISTANT_URL=https://api.openweathermap.org`.split("\n").map(env => env.split('=')).map(env => window[env[0]] = env[1]);
+</script>
+<script src="./Geocoding API - OpenWeatherMap_files/assistant-index.ClVGaiQn.js"></script>
+
+<div id="chat-banner" class="banner-pop-up">
+  <div class="banner-pop-up-content">
+    <img src="./Geocoding API - OpenWeatherMap_files/Ulla_bot.png" alt="Ulla the Bot" width="16" height="16">
+    <h3>Ulla Weather Assistant</h3>
+  </div>
+</div>
+
+
+<script>
+  const chatBanner = document.getElementById('chat-banner');
+  const chatBot = document.getElementById('owm-chat-bot');
+
+  chatBanner.addEventListener('click', () => {
+    chatBanner.style.display = 'none';
+    chatBot.style.display = chatBot.style.display === 'none' ? 'block' : 'none';
+    gtag('event', 'maxullaweather', {
+      'event_category': 'Chat',
+      'event_label': 'maxullaweather'
+    });
+  });
+
+  window.addEventListener('minimize', () => {
+    chatBot.style.display = 'none';
+    chatBanner.style.display = 'block';
+    gtag('event', 'minullaweather', {
+      'event_category': 'Chat',
+      'event_label': 'minullaweather'
+    });
+  });
+
+  const gdprBanner = document.querySelector('.gdpr-banner');
+
+  if (gdprBanner) {
+    chatBanner.style.bottom = '80px';
+
+    const observer = new MutationObserver(() => {
+      if (!document.body.contains(gdprBanner)) {
+        chatBanner.style.bottom = '50px';
+      } else {
+        chatBanner.style.bottom = (gdprBanner.clientHeight + 8) + 'px';
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+</script>
+
+<div id="topcontrol" title="" style="position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;"><i class="fa fa-angle-up backtotop"></i></div></body></html>
