@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/app/config/app_config.dart';
 import 'package:weather_app/app/config/font_config.dart';
 import 'package:weather_app/src/models/forecast_model.dart';
@@ -10,10 +11,13 @@ class FiveDayForecast extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        children: forecast.forecastList.map((e) => _buildItem(e)).toList(),
+    return Container(
+      color: appColors.surface,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: forecast.list?.map((e) => _buildItem(e)).toList() ?? [],
+        ),
       ),
     );
   }
@@ -26,13 +30,13 @@ class FiveDayForecast extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('data',
+              Text(e.dt == null ? '' : DateFormat('EEEE').format(e.dt!),
                 style: FontConfig.body.copyWith(
                   color: appColors.onBackground_9,
                   height: 1.2
                 ),
               ),
-              Text('data',
+              Text('${(e.temp?.day ?? e.main?.temp)?.toString() ?? ''} C',
                 style: FontConfig.body.copyWith(
                     color: appColors.onBackground_9,
                     height: 1.2

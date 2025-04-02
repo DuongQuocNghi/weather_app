@@ -66,6 +66,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       final forecast = await weatherRepository.getFiveDayForecast(
         state.currentLocation?.latitude ?? 0,
         state.currentLocation?.longitude ?? 0,
+        cnt: 4
       );
 
       emit(state.copyWith(forecast: forecast));

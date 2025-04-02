@@ -1,7 +1,5 @@
-import 'package:equatable/equatable.dart';
-
 class WeatherModel {
-  final CurrentWeather? main;
+  final MainWeather? main;
   final String? name;
 
   const WeatherModel({
@@ -11,22 +9,22 @@ class WeatherModel {
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
     return WeatherModel(
-        main: CurrentWeather.fromJson(json['main']),
+        main: MainWeather.fromJson(json['main']),
         name: json['name']
     );
   }
 
 }
 
-class CurrentWeather {
+class MainWeather {
   final double? temp;
 
-  const CurrentWeather({
+  const MainWeather({
     this.temp,
   });
 
-  factory CurrentWeather.fromJson(Map<String, dynamic> json) {
-    return CurrentWeather(
+  factory MainWeather.fromJson(Map<String, dynamic> json) {
+    return MainWeather(
       temp: json['temp']?.toDouble(),
     );
   }

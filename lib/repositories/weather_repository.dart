@@ -9,7 +9,8 @@ abstract class WeatherRepository {
   Future<WeatherModel> getCurrentWeather(double lat, double lon);
 
   /// Lấy dự báo thời tiết 5 ngày tại vị trí có tọa độ [lat] và [lon]
-  Future<ForecastModel> getFiveDayForecast(double lat, double lon);
+  ///   /// [cnt]: số lượng mốc thời gian cần lấy, mỗi mốc cách nhau 3 giờ
+  Future<ForecastModel> getFiveDayForecast(double lat, double lon, {int? cnt});
 }
 
 /// Implementation của WeatherRepository
@@ -31,9 +32,9 @@ class DefaultWeatherRepository implements WeatherRepository {
   }
 
   @override
-  Future<ForecastModel> getFiveDayForecast(double lat, double lon) async {
+  Future<ForecastModel> getFiveDayForecast(double lat, double lon, {int? cnt}) async {
     try {
-      final jsonData = await weatherService.fetchFiveDayForecast(lat, lon);
+      final jsonData = await weatherService.fetchFiveDayForecast(lat, lon, cnt: cnt);
       return ForecastModel.fromJson(jsonData);
     } on ServerException {
       rethrow;

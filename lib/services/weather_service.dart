@@ -9,7 +9,9 @@ abstract class WeatherService {
   Future<Map<String, dynamic>> fetchCurrentWeather(double lat, double lon);
 
   /// Lấy dữ liệu dự báo 5 ngày tại vị trí có tọa độ [lat] và [lon]
-  Future<Map<String, dynamic>> fetchFiveDayForecast(double lat, double lon);
+  /// [cnt]: số lượng mốc thời gian cần lấy, mỗi mốc cách nhau 3 giờ
+  Future<Map<String, dynamic>> fetchFiveDayForecast(double lat, double lon, {int? cnt});
+
 }
 
 /// Implementation của WeatherService sử dụng OpenWeatherMap API
@@ -59,11 +61,12 @@ class OpenWeatherMapService implements WeatherService {
   Future<Map<String, dynamic>> fetchFiveDayForecast(
     double lat,
     double lon,
+      {int? cnt}
   ) async {
     _checkApiConfig();
 
     final url =
-        '$baseUrl/data/2.5/forecast?lat=$lat&lon=$lon&appid=$apiKey&units=metric';
+        '$baseUrl/data/2.5/forecast?lat=$lat&lon=$lon&appid=$apiKey${cnt != null ? '&cnt=$cnt' : ''}&units=metric';
 
     try {
       final response = await client.get(Uri.parse(url));
@@ -80,4 +83,6 @@ class OpenWeatherMapService implements WeatherService {
       throw ServerException(message: e.toString());
     }
   }
+
+
 }
