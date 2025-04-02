@@ -23,5 +23,6 @@
   "location_permission_denied_forever": "Location permissions are permanently denied, we cannot request permissions.",
   "location_service_disabled": "Location services are disabled. Please enable them.",
   "server_error": "Server error",
-  "temperature_celsius": "°C"
+  "temperature_celsius": "°C",
+  "temperature": "°"
 }

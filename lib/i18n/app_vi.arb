@@ -23,5 +23,6 @@
   "location_permission_denied_forever": "Quyền truy cập vị trí bị từ chối vĩnh viễn, không thể yêu cầu quyền.",
   "location_service_disabled": "Dịch vụ vị trí bị tắt. Vui lòng bật lại.",
   "server_error": "Lỗi máy chủ",
-  "temperature_celsius": "°C"
+  "temperature_celsius": "°C",
+  "temperature": "°"
 }

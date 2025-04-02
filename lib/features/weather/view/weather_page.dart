@@ -47,24 +47,21 @@ class WeatherView extends StatelessWidget {
                 if (state.weather == null) {
                   return const WeatherLoading();
                 }
-                return Column(
-                  children: [
-                    // Hiển thị thông tin thời tiết hiện tại
-                    Expanded(
-                      flex: 2,
-                      child: WeatherInfo(weather: state.weather!),
-                    ),
+                return SingleChildScrollView(
+                  child: Center(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 56,),
+                        // Hiển thị thông tin thời tiết hiện tại
+                        WeatherInfo(weather: state.weather!),
 
-                    // Hiển thị dự báo 5 ngày nếu có dữ liệu
-                    if (state.forecast != null)
-                      Expanded(
-                        flex: 3,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: FiveDayForecast(forecast: state.forecast!),
-                        ),
-                      ),
-                  ],
+                        SizedBox(height: 62,),
+                        // Hiển thị dự báo 5 ngày nếu có dữ liệu
+                        if (state.forecast != null)
+                          FiveDayForecast(forecast: state.forecast!),
+                      ],
+                    ),
+                  ),
                 );
               case WeatherStatus.failure:
                 return WeatherError(

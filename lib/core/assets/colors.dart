@@ -81,7 +81,7 @@ class AppLightTheme extends AppColor {
 
     blue_1 = const Color(0xffE4F3FF);
     blue_2 = const Color(0xff95CDFF);
-    blue_3 = const Color(0xff5C8DEB);
+    blue_3 = const Color(0xff556799);
     blue_4 = const Color(0xff3645B8);
 
     violet_1 = const Color(0xffF6E9FF);
@@ -102,7 +102,7 @@ class AppLightTheme extends AppColor {
     onBackground_6 = const Color(0xff787877);
     onBackground_7 = const Color(0xff636363);
     onBackground_8 = const Color(0xff444443);
-    onBackground_9 = const Color(0xff232322);
+    onBackground_9 = const Color(0xff2A2A2A);
 
     primary_0 = const Color(0xffFFF9E9);
     primary_1 = const Color(0xffFFECBA);
