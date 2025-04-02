@@ -6,6 +6,7 @@ import 'package:weather_app/app/di/injection_container.dart' as di;
 import 'package:weather_app/features/weather/view/weather_page.dart';
 import 'package:weather_app/src/generated/i18n/app_localizations.dart';
 import 'package:weather_app/app/config/app_config.dart';
+import 'package:weather_app/app/config/font_config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,11 +28,8 @@ void main() async {
       supportedLocales: languageConfig.supportedLocales,
       locale: await languageConfig.getSavedLocale(),
       theme: ThemeData(
-        primaryColor: Colors.blue.shade900,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          brightness: Brightness.light,
-        ),
+        textTheme: FontConfig.textTheme,
+        primaryTextTheme: FontConfig.textTheme,
       ),
     ),
   );

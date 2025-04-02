@@ -16,7 +16,7 @@
   "hello": "Hello everybody",
   
   "loading_weather": "Loading weather data...",
-  "error_loading_weather": "Unable to load weather data",
+  "error_loading_weather": "Something went wrong at our end!",
   "retry": "Retry",
   "forecast_days": "Next 4 days forecast",
   "location_permission_denied": "Location permissions are denied.",

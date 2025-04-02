@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/app/config/app_config.dart';
 import 'package:weather_app/app/di/injection_container.dart';
 import 'package:weather_app/features/weather/bloc/weather_bloc.dart';
 import 'package:weather_app/features/weather/bloc/weather_event.dart';
@@ -33,7 +34,7 @@ class WeatherView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade900,
+      backgroundColor: appColors.background,
       body: SafeArea(
         child: BlocBuilder<WeatherBloc, WeatherState>(
           builder: (context, state) {

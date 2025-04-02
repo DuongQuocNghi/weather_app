@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/app/config/app_config.dart';
+import 'package:weather_app/core/widgets/button.dart';
 import 'package:weather_app/src/generated/i18n/app_localizations.dart';
+import 'package:weather_app/app/config/font_config.dart';
 
 class WeatherError extends StatelessWidget {
   final String errorMessage;
@@ -13,50 +16,33 @@ class WeatherError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.error_outline, color: Colors.red, size: 60),
-            const SizedBox(height: 16),
-            Text(
-              AppLocalizations.of(context)?.error_loading_weather ??
-                  'Không thể tải dữ liệu thời tiết',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              errorMessage,
-              style: TextStyle(color: Colors.white, fontSize: 14),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: onRetry,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
-                  vertical: 12,
+    return Container(
+      color: appColors.red_3,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                AppLocalizations.of(context)?.error_loading_weather ??
+                    'Không thể tải dữ liệu thời tiết',
+                style: FontConfig.h2.copyWith(
+                  color: appColors.onPrimaryLight,
                 ),
+                textAlign: TextAlign.center,
               ),
-              child: Text(
-                AppLocalizations.of(context)?.retry ?? 'Thử lại',
-                style: TextStyle(
-                  color: Colors.blue.shade900,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+              const SizedBox(height: 44),
+              AppButton(
+                height: null,
+                padding: EdgeInsets.symmetric(horizontal: 28, vertical: 12),
+                onPressed: onRetry,
+                title: AppLocalizations.of(context)?.retry ?? 'Thử lại',
+                backroundColor: appColors.onBackground_8,
+                titleStyle: FontConfig.body.copyWith(color: appColors.surface),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

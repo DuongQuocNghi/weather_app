@@ -76,7 +76,7 @@ class AppLightTheme extends AppColor {
 
     red_1 = const Color(0xffFFE9E2);
     red_2 = const Color(0xffF4BCB4);
-    red_3 = const Color(0xffEA5338);
+    red_3 = const Color(0xffE85959);
     red_4 = const Color(0xffB92F24);
 
     blue_1 = const Color(0xffE4F3FF);
@@ -91,7 +91,7 @@ class AppLightTheme extends AppColor {
 
     onSupportLight = const Color(0xffFFFFFF);
 
-    background = const Color(0xffFFFFFF);
+    background = const Color(0xffF5F6F6);
     surface = const Color(0xffFFFFFF);
 
     onBackground_1 = const Color(0xffF9F8F8);
@@ -136,7 +136,7 @@ class AppDarkTheme extends AppColor {
 
     red_1 = const Color(0xffFFE9E2);
     red_2 = const Color(0xffF4BCB4);
-    red_3 = const Color(0xffEA5338);
+    red_3 = const Color(0xffE85959);
     red_4 = const Color(0xffEA5338);
 
     blue_1 = const Color(0xffE4F3FF);

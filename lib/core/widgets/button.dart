@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/app/config/font_config.dart';
 import 'package:weather_app/core/assets/colors.dart';
 import 'package:weather_app/app/config/app_config.dart';
 import 'package:weather_app/core/utils/buttons.dart';
-import 'package:weather_app/core/utils/text_styles.dart';
 import 'package:weather_app/core/widgets/gradient_border.dart';
 
 @immutable
@@ -83,7 +83,7 @@ class AppButton extends StatefulWidget implements AppButtons {
           colors: (apColor ?? appColors).primaryGradient,
         ),
       ),
-      titleStyle: AppTextStyles.bodyHighlight.copyWith(
+      titleStyle: FontConfig.caption.copyWith(
         color: (apColor ?? appColors).onBackground_9,
       ),
       backroundColor: (apColor ?? appColors).background,
@@ -112,7 +112,7 @@ class AppButton extends StatefulWidget implements AppButtons {
       constraints: constraints,
       disabled: disabled,
       maxLines: maxLines,
-      titleStyle: AppTextStyles.bodyHighlight.copyWith(
+      titleStyle: FontConfig.caption.copyWith(
         color: (apColor ?? appColors).onPrimaryDark,
       ),
       backroundColor: (apColor ?? appColors).primary_3,
@@ -141,7 +141,7 @@ class AppButton extends StatefulWidget implements AppButtons {
       constraints: constraints,
       disabled: disabled,
       maxLines: maxLines,
-      titleStyle: AppTextStyles.bodyHighlight.copyWith(
+      titleStyle: FontConfig.caption.copyWith(
         color: (apColor ?? appColors).onBackground_9,
       ),
       backroundColor: (apColor ?? appColors).onBackground_1,
@@ -170,7 +170,7 @@ class AppButton extends StatefulWidget implements AppButtons {
       constraints: constraints,
       disabled: disabled,
       maxLines: maxLines,
-      titleStyle: AppTextStyles.bodyHighlight.copyWith(
+      titleStyle: FontConfig.caption.copyWith(
         color: (apColor ?? appColors).onBackground_9,
       ),
       backroundColor: (apColor ?? appColors).background,

@@ -16,7 +16,7 @@
   "hello": "Xin chào",
   
   "loading_weather": "Đang tải dữ liệu thời tiết...",
-  "error_loading_weather": "Không thể tải dữ liệu thời tiết",
+  "error_loading_weather": "Không thể tải dữ liệu thời tiết!",
   "retry": "Thử lại",
   "forecast_days": "Dự báo 4 ngày tới",
   "location_permission_denied": "Quyền truy cập vị trí bị từ chối.",
