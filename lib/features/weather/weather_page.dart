@@ -47,20 +47,31 @@ class WeatherView extends StatelessWidget {
                 if (state.weather == null) {
                   return const WeatherLoading();
                 }
-                return SingleChildScrollView(
-                  child: Center(
-                    child: Column(
-                      children: [
-                        SizedBox(height: 56,),
-                        // Hiển thị thông tin thời tiết hiện tại
-                        WeatherInfo(weather: state.weather!),
-
-                        SizedBox(height: 62,),
-                        // Hiển thị dự báo 5 ngày nếu có dữ liệu
-                        if (state.forecast != null)
-                          FiveDayForecast(forecast: state.forecast!),
-                      ],
-                    ),
+                var _isVisibleForecast = state.forecast != null;
+                return SizedBox(
+                  width: double.infinity,
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Column(
+                          children: [
+                            SizedBox(height: 56,),
+                            // Hiển thị thông tin thời tiết hiện tại
+                            WeatherInfo(weather: state.weather!),
+                            // SizedBox(height: 62,),
+                          ],
+                        ),
+                      ),
+                      AnimatedPositioned(
+                        duration: Duration(seconds: 1),
+                        curve: Curves.easeInOut,
+                        left: 0, right: 0,
+                        bottom: _isVisibleForecast ? 0 : -MediaQuery.of(context).size.height,
+                        height: MediaQuery.of(context).size.height - (_isVisibleForecast ? 307 : 0),
+                        // Hiển thị dự báo 4 ngày nếu có dữ liệu
+                        child: FiveDayForecast(forecast: state.forecast),
+                      ),
+                    ],
                   ),
                 );
               case WeatherStatus.failure:

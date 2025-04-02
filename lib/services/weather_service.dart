@@ -12,6 +12,8 @@ abstract class WeatherService {
   /// [cnt]: số lượng mốc thời gian cần lấy, mỗi mốc cách nhau 3 giờ
   Future<Map<String, dynamic>> fetchFiveDayForecast(double lat, double lon, {int? cnt});
 
+  /// Lấy dữ liệu dự báo theo ngày [cnt] tại vị trí có tọa độ [lat] và [lon],
+  Future<Map<String, dynamic>> fetchDailyForecast16Days(double lat, double lon, int cnt,);
 }
 
 /// Implementation của WeatherService sử dụng OpenWeatherMap API
@@ -85,4 +87,30 @@ class OpenWeatherMapService implements WeatherService {
   }
 
 
+  @override
+  Future<Map<String, dynamic>> fetchDailyForecast16Days(
+      double lat,
+      double lon,
+      int cnt,
+      ) async {
+    _checkApiConfig();
+
+    final url =
+        '$baseUrl/data/2.5/forecast/daily?lat=$lat&lon=$lon&cnt=$cnt&appid=$apiKey&units=metric';
+
+    try {
+      final response = await client.get(Uri.parse(url));
+
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        throw ServerException(
+          message: 'Server error with status code: ${response.statusCode}',
+        );
+      }
+    } catch (e) {
+      if (e is ServerException) rethrow;
+      throw ServerException(message: e.toString());
+    }
+  }
 }

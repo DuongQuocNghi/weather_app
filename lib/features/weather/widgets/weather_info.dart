@@ -31,7 +31,7 @@ class WeatherInfo extends StatelessWidget {
 
   Widget _buildCurrentWeather(BuildContext context) {
     return Text(
-      '${weather.main?.temp ?? '-'}${AppLocalizations.of(context)?.temperature ?? '°'}',
+      '${weather.main?.temp?.round() ?? '-'}${AppLocalizations.of(context)?.temperature ?? '°'}',
       style: FontConfig.h1.copyWith(
         color: appColors.onBackground_9,
         height: 1.2

@@ -63,6 +63,8 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     if (state.weather == null) return;
 
     try {
+      // api getDailyForecast16Days tài khoản miễn phí không dùng được sử dụng tạm getFiveDayForecast làm data
+      // https://openweathermap.org/full-price#current
       final forecast = await weatherRepository.getFiveDayForecast(
         state.currentLocation?.latitude ?? 0,
         state.currentLocation?.longitude ?? 0,
