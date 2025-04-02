@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/app/config/app_config.dart';
@@ -36,6 +38,7 @@ class WeatherView extends StatelessWidget {
     return Scaffold(
       backgroundColor: appColors.background,
       body: SafeArea(
+        bottom: false,
         child: BlocBuilder<WeatherBloc, WeatherState>(
           builder: (context, state) {
             switch (state.status) {
@@ -47,7 +50,7 @@ class WeatherView extends StatelessWidget {
                 if (state.weather == null) {
                   return const WeatherLoading();
                 }
-                var _isVisibleForecast = state.forecast != null;
+                var isVisibleForecast = state.forecast != null;
                 return SizedBox(
                   width: double.infinity,
                   child: Stack(
@@ -58,16 +61,16 @@ class WeatherView extends StatelessWidget {
                             SizedBox(height: 56,),
                             // Hiển thị thông tin thời tiết hiện tại
                             WeatherInfo(weather: state.weather!),
-                            // SizedBox(height: 62,),
+                            // Container(height: 62, width: 200, color: Colors.red,),
                           ],
                         ),
                       ),
                       AnimatedPositioned(
-                        duration: Duration(seconds: 1),
+                        duration: Duration(milliseconds: 1300),
                         curve: Curves.easeInOut,
                         left: 0, right: 0,
-                        bottom: _isVisibleForecast ? 0 : -MediaQuery.of(context).size.height,
-                        height: MediaQuery.of(context).size.height - (_isVisibleForecast ? 307 : 0),
+                        bottom: isVisibleForecast ? 0 : -MediaQuery.of(context).size.height,
+                        height: MediaQuery.of(context).size.height - (isVisibleForecast ? (Platform.isAndroid ? 307 : 342) : 0),
                         // Hiển thị dự báo 4 ngày nếu có dữ liệu
                         child: FiveDayForecast(forecast: state.forecast),
                       ),
