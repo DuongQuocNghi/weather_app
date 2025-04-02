@@ -22,32 +22,7 @@ class DefaultWeatherRepository implements WeatherRepository {
   Future<WeatherModel> getCurrentWeather(double lat, double lon) async {
     try {
       final jsonData = await weatherService.fetchCurrentWeather(lat, lon);
-
-      // Chuyển đổi dữ liệu từ API /weather sang định dạng tương thích với model
-      final Map<String, dynamic> formattedData = {
-        'lat': jsonData['coord']['lat'],
-        'lon': jsonData['coord']['lon'],
-        'timezone': jsonData['name'] ?? 'Unknown',
-        'current': {
-          'temp': jsonData['main']['temp'],
-          'dt': jsonData['dt'],
-          'weather': jsonData['weather'],
-        },
-        'daily': [
-          {
-            'dt': jsonData['dt'],
-            'temp': {
-              'day': jsonData['main']['temp'],
-              'night': jsonData['main']['temp'],
-              'min': jsonData['main']['temp_min'],
-              'max': jsonData['main']['temp_max'],
-            },
-            'weather': jsonData['weather'],
-          },
-        ],
-      };
-
-      return WeatherModel.fromJson(formattedData);
+      return WeatherModel.fromJson(jsonData);
     } on ServerException {
       rethrow;
     } catch (e) {

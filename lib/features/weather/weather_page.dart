@@ -67,7 +67,7 @@ class WeatherView extends StatelessWidget {
                 return WeatherError(
                   errorMessage: state.errorMessage ?? 'Có lỗi xảy ra',
                   onRetry: () {
-                    context.read<WeatherBloc>().add(const WeatherRefreshed());
+                    context.read<WeatherBloc>().add(const WeatherFetched());
                   },
                 );
             }

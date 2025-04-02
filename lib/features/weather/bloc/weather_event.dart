@@ -11,10 +11,6 @@ class WeatherFetched extends WeatherEvent {
   const WeatherFetched();
 }
 
-class WeatherRefreshed extends WeatherEvent {
-  const WeatherRefreshed();
-}
-
 class ForecastFetched extends WeatherEvent {
   const ForecastFetched();
 }

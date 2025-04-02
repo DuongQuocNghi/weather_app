@@ -16,7 +16,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   WeatherBloc({required this.weatherRepository, required this.locationService})
     : super(const WeatherState()) {
     on<WeatherFetched>(_onWeatherFetched, transformer: droppable());
-    on<WeatherRefreshed>(_onWeatherRefreshed, transformer: droppable());
     on<ForecastFetched>(_onForecastFetched, transformer: droppable());
   }
 
@@ -35,44 +34,9 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
         position.longitude,
       );
 
-      emit(state.copyWith(status: WeatherStatus.success, weather: weather));
+      emit(state.copyWith(status: WeatherStatus.success, weather: weather, currentLocation: position));
 
       // Tự động lấy dữ liệu dự báo sau khi lấy thời tiết hiện tại
-      add(const ForecastFetched());
-    } on LocationException catch (e) {
-      emit(
-        state.copyWith(status: WeatherStatus.failure, errorMessage: e.message),
-      );
-    } on ServerException catch (e) {
-      emit(
-        state.copyWith(status: WeatherStatus.failure, errorMessage: e.message),
-      );
-    } catch (e) {
-      emit(
-        state.copyWith(
-          status: WeatherStatus.failure,
-          errorMessage: 'Có lỗi xảy ra: ${e.toString()}',
-        ),
-      );
-    }
-  }
-
-  Future<void> _onWeatherRefreshed(
-    WeatherRefreshed event,
-    Emitter<WeatherState> emit,
-  ) async {
-    emit(state.copyWith(status: WeatherStatus.loading));
-
-    try {
-      final Position position = await locationService.getCurrentLocation();
-      final weather = await weatherRepository.getCurrentWeather(
-        position.latitude,
-        position.longitude,
-      );
-
-      emit(state.copyWith(status: WeatherStatus.success, weather: weather));
-
-      // Tự động làm mới dữ liệu dự báo
       add(const ForecastFetched());
     } on LocationException catch (e) {
       emit(
@@ -100,8 +64,8 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
     try {
       final forecast = await weatherRepository.getFiveDayForecast(
-        state.weather!.lat,
-        state.weather!.lon,
+        state.currentLocation?.latitude ?? 0,
+        state.currentLocation?.longitude ?? 0,
       );
 
       emit(state.copyWith(forecast: forecast));

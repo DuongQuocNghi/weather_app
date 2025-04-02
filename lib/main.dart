@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather_app/app/config/language_config.dart';
 import 'package:weather_app/app/di/injection_container.dart' as di;
-import 'package:weather_app/features/weather/view/weather_page.dart';
+import 'package:weather_app/features/weather/weather_page.dart';
 import 'package:weather_app/src/generated/i18n/app_localizations.dart';
 import 'package:weather_app/app/config/app_config.dart';
 import 'package:weather_app/app/config/font_config.dart';
