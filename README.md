@@ -125,28 +125,6 @@ test/
 - Sử dụng Mocktail để tạo mocks cho các dependencies
 - Verify các cuộc gọi phương thức để đảm bảo chúng được thực hiện đúng
 
-### Ví dụ Test Case
-```dart
-test('trả về vị trí hiện tại khi dịch vụ định vị được bật và có quyền truy cập', () async {
-  // Arrange
-  when(() => mockGeolocatorWrapper.isLocationServiceEnabled())
-    .thenAnswer((_) async => true);
-  when(() => mockGeolocatorWrapper.checkPermission())
-    .thenAnswer((_) async => LocationPermission.whileInUse);
-  when(() => mockGeolocatorWrapper.getCurrentPosition())
-    .thenAnswer((_) async => tPosition);
-
-  // Act
-  final position = await locationService.getCurrentLocation();
-
-  // Assert
-  expect(position, equals(tPosition));
-  verify(() => mockGeolocatorWrapper.isLocationServiceEnabled());
-  verify(() => mockGeolocatorWrapper.checkPermission());
-  verify(() => mockGeolocatorWrapper.getCurrentPosition());
-});
-```
-
 ### Chạy tests
 ```bash
 # Chạy tất cả tests
