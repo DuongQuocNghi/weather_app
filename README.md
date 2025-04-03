@@ -30,6 +30,18 @@ lib/
     └── generated/        # Code được sinh tự động
 ```
 
+```
+test/
+├── core/                 # Kiểm thử cho các thành phần cốt lõi
+│   └── errors/           # Kiểm thử cho exceptions
+├── features/             # Kiểm thử cho các tính năng
+│   └── weather/          # Kiểm thử cho module thời tiết
+│       ├── bloc/         # Kiểm thử cho bloc
+│       └── widgets/      # Kiểm thử cho widgets
+├── repositories/         # Kiểm thử cho repositories
+└── services/             # Kiểm thử cho services
+```
+
 ### Gói thư viện chính
 - **flutter_bloc**: Quản lý trạng thái ứng dụng theo BLoC pattern
 - **go_router**: Điều hướng và xử lý deeplink
@@ -39,6 +51,9 @@ lib/
 - **intl & flutter_localizations**: Hỗ trợ đa ngôn ngữ 
 - **equatable**: So sánh đối tượng
 - **flutter_dotenv**: Quản lý biến môi trường
+- **geolocator**: Truy cập vị trí người dùng
+- **mocktail**: Thư viện mock cho testing
+- **bloc_test**: Hỗ trợ kiểm thử BLoC
 
 ## Kiến trúc
 Ứng dụng được xây dựng theo kiến trúc Clean Architecture với các lớp rõ ràng:
@@ -82,6 +97,68 @@ lib/
 - Xử lý lỗi ở tầng repository trước khi đưa lên UI
 - Hiển thị thông báo lỗi thân thiện với người dùng
 
+## Kiểm thử (Testing)
+
+### Cấu trúc kiểm thử
+- Cấu trúc thư mục test phản ánh cấu trúc thư mục lib
+- Mỗi thành phần của ứng dụng đều có bài kiểm thử tương ứng
+- Sử dụng pattern AAA (Arrange-Act-Assert) để tổ chức các test case
+
+### Các loại kiểm thử
+1. **Unit Tests**: Kiểm thử từng thành phần riêng lẻ
+   - Tests cho Services (WeatherService, LocationService)
+   - Tests cho Repositories (WeatherRepository)
+   - Tests cho BLoCs (WeatherBloc)
+   - Tests cho Models và Exceptions
+
+2. **Widget Tests**: Kiểm thử UI components
+   - Kiểm tra hiển thị dữ liệu đúng
+   - Kiểm tra xử lý các trạng thái khác nhau (nhiệt độ dương/âm)
+
+### Công cụ kiểm thử
+- **mocktail**: Mock các dependencies để cô lập unit tests
+- **bloc_test**: Kiểm thử BLoC states và events
+- **flutter_test**: Framework kiểm thử Flutter chính thức
+
+### Kỹ thuật mock
+- Sử dụng wrappers để mock các static methods (ví dụ: Geolocator)
+- Sử dụng Mocktail để tạo mocks cho các dependencies
+- Verify các cuộc gọi phương thức để đảm bảo chúng được thực hiện đúng
+
+### Ví dụ Test Case
+```dart
+test('trả về vị trí hiện tại khi dịch vụ định vị được bật và có quyền truy cập', () async {
+  // Arrange
+  when(() => mockGeolocatorWrapper.isLocationServiceEnabled())
+    .thenAnswer((_) async => true);
+  when(() => mockGeolocatorWrapper.checkPermission())
+    .thenAnswer((_) async => LocationPermission.whileInUse);
+  when(() => mockGeolocatorWrapper.getCurrentPosition())
+    .thenAnswer((_) async => tPosition);
+
+  // Act
+  final position = await locationService.getCurrentLocation();
+
+  // Assert
+  expect(position, equals(tPosition));
+  verify(() => mockGeolocatorWrapper.isLocationServiceEnabled());
+  verify(() => mockGeolocatorWrapper.checkPermission());
+  verify(() => mockGeolocatorWrapper.getCurrentPosition());
+});
+```
+
+### Chạy tests
+```bash
+# Chạy tất cả tests
+flutter test
+
+# Chạy test cho một file cụ thể
+flutter test test/services/weather_service_test.dart
+
+# Chạy test với coverage
+flutter test --coverage
+```
+
 ## Cài đặt & Chạy
 ```bash
 # Clone dự án
@@ -101,6 +178,7 @@ Khi phát triển tính năng mới, hãy tuân thủ quy trình sau:
 3. Tạo repository để xử lý business logic
 4. Tạo bloc để quản lý state của tính năng
 5. Phát triển UI components sử dụng bloc
+6. Viết tests cho mỗi lớp đã tạo (services, repositories, bloc, UI)
 
 ## API
 Ứng dụng sử dụng OpenWeatherMap API để lấy dữ liệu thời tiết. Các API được sử dụng bao gồm:
