@@ -51,31 +51,35 @@ class WeatherView extends StatelessWidget {
                   return const WeatherLoading();
                 }
                 var isVisibleForecast = state.forecast != null;
-                return SizedBox(
-                  width: double.infinity,
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Column(
-                          children: [
-                            SizedBox(height: 56,),
-                            // Hiển thị thông tin thời tiết hiện tại
-                            WeatherInfo(weather: state.weather!),
-                            // Container(height: 62, width: 200, color: Colors.red,),
-                          ],
-                        ),
+                return LayoutBuilder(
+                  builder: (context, constraints) {
+                    return SizedBox(
+                      width: double.infinity,
+                      child: Stack(
+                        children: [
+                          Center(
+                            child: Column(
+                              children: [
+                                SizedBox(height: 56,),
+                                // Hiển thị thông tin thời tiết hiện tại
+                                WeatherInfo(weather: state.weather!),
+                                // Container(height: 62, width: 200, color: Colors.red,),
+                              ],
+                            ),
+                          ),
+                          AnimatedPositioned(
+                            duration: Duration(milliseconds: 1300),
+                            curve: Curves.easeInOut,
+                            left: 0, right: 0,
+                            bottom: isVisibleForecast ? 0 : -constraints.maxHeight,
+                            height: constraints.maxHeight - (isVisibleForecast ? 283 : 0),
+                            // Hiển thị dự báo 4 ngày nếu có dữ liệu
+                            child: FiveDayForecast(forecast: state.forecast),
+                          ),
+                        ],
                       ),
-                      AnimatedPositioned(
-                        duration: Duration(milliseconds: 1300),
-                        curve: Curves.easeInOut,
-                        left: 0, right: 0,
-                        bottom: isVisibleForecast ? 0 : -MediaQuery.of(context).size.height,
-                        height: MediaQuery.of(context).size.height - (isVisibleForecast ? (Platform.isAndroid ? 307 : 342) : 0),
-                        // Hiển thị dự báo 4 ngày nếu có dữ liệu
-                        child: FiveDayForecast(forecast: state.forecast),
-                      ),
-                    ],
-                  ),
+                    );
+                  }
                 );
               case WeatherStatus.failure:
                 return WeatherError(

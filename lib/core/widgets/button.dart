@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/app/config/font_config.dart';
 import 'package:weather_app/core/assets/colors.dart';
 import 'package:weather_app/app/config/app_config.dart';
-import 'package:weather_app/core/utils/buttons.dart';
 import 'package:weather_app/core/widgets/gradient_border.dart';
+
+abstract class AppButtons{
+  Widget primary({AppColor? apColor});
+  Widget secondary({AppColor? apColor});
+  Widget subtle({AppColor? apColor});
+  Widget outline({AppColor? apColor});
+}
 
 @immutable
 class AppButton extends StatefulWidget implements AppButtons {

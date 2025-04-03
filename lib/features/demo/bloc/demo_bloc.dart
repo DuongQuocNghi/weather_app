@@ -1,21 +1,15 @@
 import 'dart:async';
 
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/utils/throttle_droppable.dart';
 import 'package:weather_app/features/demo/bloc/demo_event.dart';
 import 'package:weather_app/features/demo/bloc/demo_state.dart';
 
 
 class DemoBloc extends Bloc<DemoEvent, DemoState> {
   DemoBloc() : super(const DemoState()) {
-    on<DemoInitial>(
-      _onDemoInitial,
-      transformer: throttleDroppable(throttleDuration),
-    );
-    on<DemoFetch>(
-      _onDemoFetched,
-      transformer: throttleDroppable(throttleDuration),
-    );
+    on<DemoInitial>(_onDemoInitial,transformer: droppable());
+    on<DemoFetch>(_onDemoFetched,transformer: droppable());
 
   }
 
