@@ -5,6 +5,8 @@ Flutter SDK: 3.29.1
 ## Giới thiệu
 Ứng dụng thời tiết là một ứng dụng Flutter hiện đại giúp người dùng theo dõi thông tin thời tiết. Ứng dụng hỗ trợ đa ngôn ngữ (Tiếng Anh, Tiếng Việt) và được tổ chức theo kiến trúc Clean Architecture với BLoC pattern.
 
+![Demo ứng dụng](weather_app_demo.gif)
+
 ## Cấu trúc dự án
 
 ### Cấu trúc thư mục chính
